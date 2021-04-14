@@ -16,5 +16,11 @@ namespace handwritten_number_classifier
         {
             InitializeComponent();
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            ExploreWindow ew = new ExploreWindow();
+            ew.ShowDialog();
+        }
     }
 }
