@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Windows.Forms;
 using NumSharp;
 
 namespace handwritten_number_classifier.Model
@@ -53,8 +54,13 @@ namespace handwritten_number_classifier.Model
 
             return indexedLabels;
         }
-        
-        public Bitmap GenerateImage(NDArray alphas, int imgSize)
+
+        public Bitmap GetImage(int index, int imgSize)
+        {
+            //Needs testing
+            return GenerateImage(_testSet[index, "1:"], imgSize);
+        }
+        private Bitmap GenerateImage(NDArray alphas, int imgSize)
         {
 
             Bitmap img = new Bitmap(28, 28);
@@ -70,6 +76,11 @@ namespace handwritten_number_classifier.Model
             return ScaleImage(img, imgSize, imgSize);
         }
 
+        public NDArray GetAllIndexesWithLabel(int label)
+        {
+            //TODO:
+            return null;
+        }
         private Bitmap ScaleImage(Bitmap bmp, int maxWidth, int maxHeight)
         {
             var ratioX = (double)maxWidth / bmp.Width;

@@ -13,14 +13,12 @@ namespace handwritten_number_classifier.Model
             _holder.LoadTestSet(); 
         }
 
-        public Bitmap getImageWithIndex(int index)
+        public Bitmap GetImageWithIndex(int index, int imageSize)
         {
-            //TODO
-
-            return null;
+            return _holder.GetImage(index, imageSize);
         }
 
-        public NDArray getAllImagesWithLabel(int label)
+        public NDArray GetAllIndexesWithLabel(int label)
         {
             //TODO
             return null;
