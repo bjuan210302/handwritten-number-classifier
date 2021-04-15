@@ -1,38 +1,37 @@
 ﻿using System;
-using System.ComponentModel;
-using System.ComponentModel.Composition.Primitives;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Linq;
-using System.Windows.Forms;
 using NumSharp;
 
 namespace handwritten_number_classifier.Model
 {
-    public class CsvParser
+    public class CsvHolder
     {
-        public static readonly string TRAINING_SET_PATH = "../../assets/mnist_csv/mnist_train.csv";
-        public static readonly string TEST_SET_PATH = "../../assets/mnist_csv/mnist_test.csv";
+        public const string TrainingSetPath = "../../assets/mnist_csv/mnist_train.csv";
+        public const string TestSetPath = "../../assets/mnist_csv/mnist_test.csv";
 
-        private NDArray trainingSetPath;
-        private NDArray testSet;
+        private NDArray _trainingSet;
+        private NDArray _indexedTrainingSet;
+        private NDArray _testSet;
+        private NDArray _indexedTestSet;
         
         public void LoadTrainingSet()
         {
-            this.trainingSetPath = LoadSet(TRAINING_SET_PATH);
+            this._trainingSet = LoadSet(TrainingSetPath);
+            this._indexedTrainingSet = IndexLabels(_trainingSet);
         }
 
         public void LoadTestSet()
         {
-            this.testSet = LoadSet(TEST_SET_PATH);
+            this._testSet = LoadSet(TestSetPath);
+            this._indexedTestSet = IndexLabels(_testSet);
         }
         
         private NDArray LoadSet(string path)
         {
             StreamReader sr = new StreamReader(path);
-            char[] delims = new[] {'\r', '\n'};
-            string[] allLines = sr.ReadToEnd().Split(delims, StringSplitOptions.RemoveEmptyEntries);
+            char[] delimiters = {'\r', '\n'};
+            string[] allLines = sr.ReadToEnd().Split(delimiters, StringSplitOptions.RemoveEmptyEntries);
 
             var infoMatrix = np.zeros((allLines.Length, allLines[0].Split(',').Length));
 
@@ -44,7 +43,18 @@ namespace handwritten_number_classifier.Model
             return infoMatrix;
         }
 
-        public static Bitmap GenerateImage(NDArray alphas)
+        private NDArray IndexLabels(NDArray matrix)
+        {
+            var labels = matrix[":,0:1"];
+        
+            var index = np.arange(1,labels.size+1).reshape(labels.size,1);
+         
+            var indexedLabels =np.concatenate((labels.transpose(), index.transpose()));
+
+            return indexedLabels;
+        }
+        
+        public Bitmap GenerateImage(NDArray alphas, int imgSize)
         {
 
             Bitmap img = new Bitmap(28, 28);
@@ -57,11 +67,10 @@ namespace handwritten_number_classifier.Model
                 }
             }
 
-
-            return ScaleImage(img, 280, 280);
+            return ScaleImage(img, imgSize, imgSize);
         }
 
-        public static Bitmap ScaleImage(Bitmap bmp, int maxWidth, int maxHeight)
+        private Bitmap ScaleImage(Bitmap bmp, int maxWidth, int maxHeight)
         {
             var ratioX = (double)maxWidth / bmp.Width;
             var ratioY = (double)maxHeight / bmp.Height;

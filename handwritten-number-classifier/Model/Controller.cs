@@ -1,23 +1,29 @@
-using System;
-using System.IO;
+using System.Drawing;
 using NumSharp;
-namespace handwritten_number_classifier.Interface
+
+namespace handwritten_number_classifier.Model
 {
-    public class Controller 
+    public class Controller
     {
+        private CsvHolder _holder;
 
-        private int[,] tabletop(int [,] matrix)
+        public Controller()
         {
-            var nd = new NDArray(matrix);
-            var ns = nd[":,0:1"];
-        
-            var index = NumSharp.np.arange(1,ns.size+1).reshape(ns.size,1);
-            var a = np.array(ns);
-         
-            var rs =np.concatenate((a.transpose(), index.transpose()));
-
-            return (int[,]) rs;
+            _holder = new CsvHolder();
+            _holder.LoadTestSet(); 
         }
-     
+
+        public Bitmap getImageWithIndex(int index)
+        {
+            //TODO
+
+            return null;
+        }
+
+        public NDArray getAllImagesWithLabel(int label)
+        {
+            //TODO
+            return null;
+        }
     }
 }
