@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using handwritten_number_classifier.Model;
 
 namespace handwritten_number_classifier
 {
@@ -17,8 +13,7 @@ namespace handwritten_number_classifier
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //Application.Run(new Form1());
-            
+            Application.Run(new Form1());
         }
     }
 }
