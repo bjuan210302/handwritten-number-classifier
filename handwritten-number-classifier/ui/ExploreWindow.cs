@@ -20,20 +20,46 @@ namespace handwritten_number_classifier.ui
             MaximizeBox = false;
             c = new Controller();
             NumberImage.Dock = DockStyle.Fill;
-            NumberImage.Image = c.GetImageWithIndex(idx, 280);
+            
+            //Chart 
+            histogramGraph.ChartAreas[0].AxisX.Maximum = 255;
+            histogramGraph.ChartAreas[0].AxisX.Minimum = 0;
+            histogramGraph.ChartAreas[0].AxisX.Interval = 17;
+            histogramGraph.Series[0]["PixelPointWidth"] = "5";
+            
+            histogramGraph.ChartAreas[0].AxisY.Maximum = 10;
+            histogramGraph.ChartAreas[0].AxisY.Minimum = 0;
+            
+            histogramGraph.ChartAreas[0].AxisX.MajorGrid.LineColor = Color.Coral;
+            histogramGraph.ChartAreas[0].AxisY.MajorGrid.LineColor = Color.Gray;
+            
+            UpdateGraphics(idx);
             searchMode = false;
             checkIdx();
             actualizeLabel();
             
         }
 
+        private void UpdateGraphics(int imageIndex)
+        {
+            NumberImage.Image = c.GetImageWithIndex(imageIndex , 280);
+            var points = c.GetHistogramOf(imageIndex);
+
+            histogramGraph.Series[0].Points.Clear();
+            
+            for (int i = 0; i < points.shape[0]; i++)
+            {
+                histogramGraph.Series[0].Points.AddXY(points[i,0], points[i, 1]);
+            }
+        }
+        
         private void searchBut_Click(object sender, EventArgs e)
         {
             searchMode = true;
             indexes = c.GetAllIndexesWithLabel(int.Parse(searchField.Text));
             idxEsp = 0;
             indexS = indexes[idxEsp];
-            NumberImage.Image = c.GetImageWithIndex((int)indexS , 280);
+            UpdateGraphics((int) indexS);
             actualizeLabel();
             checkIdx();
         }
@@ -45,7 +71,7 @@ namespace handwritten_number_classifier.ui
                 idx++;
                 checkIdx();
                 actualizeLabel();
-                NumberImage.Image = c.GetImageWithIndex(idx , 280);
+                UpdateGraphics(idx);
             }
             else
             {
@@ -53,11 +79,9 @@ namespace handwritten_number_classifier.ui
                 indexS = indexes[idxEsp];
                 checkIdx();
                 actualizeLabel();
-                NumberImage.Image = c.GetImageWithIndex((int)indexS , 280);
+                UpdateGraphics((int)indexS);
             }
 
-            
-            
         }
 
         private void prevBut_Click(object sender, EventArgs e)
@@ -67,7 +91,7 @@ namespace handwritten_number_classifier.ui
                 idx--;
                 checkIdx();
                 actualizeLabel();
-                NumberImage.Image = c.GetImageWithIndex(idx , 280);
+                UpdateGraphics(idx);
             }
             else
             {
@@ -75,7 +99,7 @@ namespace handwritten_number_classifier.ui
                 indexS = indexes[idxEsp];
                 checkIdx();
                 actualizeLabel();
-                NumberImage.Image = c.GetImageWithIndex((int)indexS , 280);
+                UpdateGraphics((int)indexS);
             }
             
         }
@@ -140,10 +164,11 @@ namespace handwritten_number_classifier.ui
         {
             searchMode = false;
             idx = 0;
-            NumberImage.Image = c.GetImageWithIndex(idx, 280);
+            UpdateGraphics(idx);
             checkIdx();
             actualizeLabel();
             searchField.Text = "";
         }
+
     }
 }
