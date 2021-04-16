@@ -28,6 +28,7 @@ riderModule.iml
 
 *.suo
 *.user
+*.csv
 .vs/
 [Bb]in/
 [Oo]bj/
