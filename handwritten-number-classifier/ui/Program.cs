@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace handwritten_number_classifier
+namespace handwritten_number_classifier.ui
 {
     static class Program
     {
