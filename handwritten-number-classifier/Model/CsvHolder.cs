@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Runtime.Remoting.Messaging;
 using System.Windows.Forms;
 using NumSharp;
 
@@ -56,9 +57,25 @@ namespace handwritten_number_classifier.Model
             return indexed;
         }
 
+        public NDArray GetHistogramOf(int imgIndex)
+        {
+            //_testSet[imgIndex, "1:"] is the pixels of the image with index imgIndex
+            var pixels = _testSet[imgIndex, "1:"];
+            var histogramPoints = np.zeros((256, 2));
+
+            for (int i = 0; i < histogramPoints.shape[0]; i++)
+            {
+                var mask = pixels[":"] == i;
+                histogramPoints[i, 0] = i; // Byte value
+                histogramPoints[i, 1] = pixels[mask].size; //Number of occurrences of the byte value i
+            }
+            
+            //Returns [ByteValue, NumberOfOccurrences]
+            return histogramPoints;
+        }
+        
         public Bitmap GetImage(int index, int imgSize)
         {
-
             return GenerateImage(_testSet[index, "1:"].reshape((28,28)).transpose(), imgSize);
         }
         private Bitmap GenerateImage(NDArray alphas, int imgSize)
