@@ -14,7 +14,7 @@
         <Deterministic>true</Deterministic>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
+        <PlatformTarget>x64</PlatformTarget>
         <DebugSymbols>true</DebugSymbols>
         <DebugType>full</DebugType>
         <Optimize>false</Optimize>
@@ -24,8 +24,8 @@
         <WarningLevel>4</WarningLevel>
     </PropertyGroup>
     <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-        <PlatformTarget>AnyCPU</PlatformTarget>
-        <DebugType>pdbonly</DebugType>
+        <PlatformTarget>x64</PlatformTarget>
+        <DebugType>full</DebugType>
         <Optimize>true</Optimize>
         <OutputPath>bin\Release\</OutputPath>
         <DefineConstants>TRACE</DefineConstants>
@@ -205,7 +205,8 @@
         <Compile Include="MainWindow.Designer.cs">
             <DependentUpon>MainWindow.cs</DependentUpon>
         </Compile>
-        <Compile Include="Model\CsvParser.cs" />
+        <Compile Include="Model\Controller.cs" />
+        <Compile Include="Model\CsvHolder.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <EmbeddedResource Include="ExploreWindow.resx">
