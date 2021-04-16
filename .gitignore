@@ -4,7 +4,7 @@ obj/
 riderModule.iml
 /_ReSharper.Caches/
 /handwritten-number-classifier.sln
-
+/handwritten-number-classifier/assets/mnist_csv
 # User specific
 **/.idea/**/workspace.xml
 **/.idea/**/tasks.xml

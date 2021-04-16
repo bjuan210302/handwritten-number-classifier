@@ -193,16 +193,28 @@
         </Reference>
     </ItemGroup>
     <ItemGroup>
-        <Compile Include="Form1.cs">
+        <Compile Include="ExploreWindow.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="ExploreWindow.Designer.cs">
+          <DependentUpon>ExploreWindow.cs</DependentUpon>
+        </Compile>
+        <Compile Include="MainWindow.cs">
             <SubType>Form</SubType>
         </Compile>
-        <Compile Include="Form1.Designer.cs">
-            <DependentUpon>Form1.cs</DependentUpon>
+        <Compile Include="MainWindow.Designer.cs">
+            <DependentUpon>MainWindow.cs</DependentUpon>
         </Compile>
         <Compile Include="Model\Controller.cs" />
         <Compile Include="Model\CsvHolder.cs" />
         <Compile Include="Program.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
+        <EmbeddedResource Include="ExploreWindow.resx">
+          <DependentUpon>ExploreWindow.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="MainWindow.resx">
+          <DependentUpon>MainWindow.cs</DependentUpon>
+        </EmbeddedResource>
         <EmbeddedResource Include="Properties\Resources.resx">
             <Generator>ResXFileCodeGenerator</Generator>
             <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -228,6 +240,9 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="assets" />
+    </ItemGroup>
+    <ItemGroup>
+      <Content Include="Resources\searchIcon.png" />
     </ItemGroup>
     <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
