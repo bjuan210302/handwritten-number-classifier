@@ -22,5 +22,11 @@ namespace handwritten_number_classifier.Model
         {
             return _holder.GetAllIndexesWithLabel(label);
         }
+
+        public NDArray GetHistogramOf(int imgIndex)
+        {
+            //Returns [ByteValue, NumberOfOccurrences], shape = (256, 2)
+            return _holder.GetHistogramOf(imgIndex);
+        }
     }
 }
