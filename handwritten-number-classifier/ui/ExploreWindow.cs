@@ -3,7 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
 
-namespace handwritten_number_classifier
+namespace handwritten_number_classifier.ui
 {
     public partial class ExploreWindow : Form
     {
@@ -12,9 +12,12 @@ namespace handwritten_number_classifier
         public ExploreWindow()
         {
             InitializeComponent();
+            MaximizeBox = false;
             c = new Controller();
             NumberImage.Dock = DockStyle.Fill;
             NumberImage.Image = c.GetImageWithIndex(idx, 280);
+            checkIdx();
+            actualizeLabel();
         }
 
         private void searchBut_Click(object sender, EventArgs e)
@@ -25,15 +28,45 @@ namespace handwritten_number_classifier
         private void nextBut_Click(object sender, EventArgs e)
         {
             idx++;
+            checkIdx();
+            actualizeLabel();
             NumberImage.Image = c.GetImageWithIndex(idx , 280);
+            
         }
 
         private void prevBut_Click(object sender, EventArgs e)
         {
             idx--;
+            checkIdx();
+            actualizeLabel();
             NumberImage.Image = c.GetImageWithIndex(idx , 280);
         }
 
-        
+        private void checkIdx()
+        {
+            if (idx == 0)
+            {
+                prevBut.Enabled = false;
+            }
+            if (idx > 0)
+            {
+                prevBut.Enabled = true;
+            }
+            if (idx == 9999)
+            {
+                nextBut.Enabled = false;
+            }
+            if (idx < 9999)
+            {
+                nextBut.Enabled = true;
+            }
+        }
+
+        private void actualizeLabel()
+        {
+            idxLabel.Text = (idx + 1) + "" ;
+        }
+
+
     }
 }
