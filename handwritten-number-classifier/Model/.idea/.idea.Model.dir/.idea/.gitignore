@@ -1,0 +1,11 @@
+﻿# Default ignored files
+/shelf/
+/workspace.xml
+# Rider ignored files
+/modules.xml
+/contentModel.xml
+/.idea.Model.iml
+/projectSettingsUpdater.xml
+# Datasource local storage ignored files
+/../../../../../../../../../../../../:\Users\Juan\Documents\ws\rider-projects\god gelp\handwritten-number-classifier\Model\.idea\.idea.Model.dir\.idea/dataSources/
+/dataSources.local.xml

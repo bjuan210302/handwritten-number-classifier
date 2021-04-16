@@ -20,8 +20,7 @@ namespace handwritten_number_classifier.Model
 
         public NDArray GetAllIndexesWithLabel(int label)
         {
-            //TODO
-            return null;
+            return _holder.GetAllIndexesWithLabel(label);
         }
     }
 }

@@ -46,19 +46,19 @@ namespace handwritten_number_classifier.Model
 
         private NDArray IndexLabels(NDArray matrix)
         {
-            var labels = matrix[":,0:1"];
+            //Returns as [label, index]
+            var labels = matrix[":,0"].reshape((matrix.shape[0], 1));
         
-            var index = np.arange(1,labels.size+1).reshape(labels.size,1);
-         
-            var indexedLabels =np.concatenate((labels.transpose(), index.transpose()));
-
-            return indexedLabels;
+            var indexed = np.arange(0,matrix.shape[0]).reshape((matrix.shape[0], 1));
+            
+            indexed = np.concatenate((labels, indexed), 1);
+            
+            return indexed;
         }
 
         public Bitmap GetImage(int index, int imgSize)
         {
-            //Needs testing
-            
+
             return GenerateImage(_testSet[index, "1:"].reshape((28,28)).transpose(), imgSize);
         }
         private Bitmap GenerateImage(NDArray alphas, int imgSize)
@@ -79,8 +79,8 @@ namespace handwritten_number_classifier.Model
 
         public NDArray GetAllIndexesWithLabel(int label)
         {
-            //TODO:
-            return null;
+            var mask = _indexedTestSet[":, 0"] == label;
+            return _indexedTestSet[mask][":, 1"];
         }
         private Bitmap ScaleImage(Bitmap bmp, int maxWidth, int maxHeight)
         {
