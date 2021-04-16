@@ -39,6 +39,7 @@ namespace handwritten_number_classifier.ui
             this.searchBut = new System.Windows.Forms.Button();
             this.idxLabel = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.clearBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.NumberImage)).BeginInit();
             this.SuspendLayout();
             // 
@@ -104,12 +105,23 @@ namespace handwritten_number_classifier.ui
             this.label2.TabIndex = 6;
             this.label2.Text = "de 10000";
             // 
+            // clearBut
+            // 
+            this.clearBut.Location = new System.Drawing.Point(643, 39);
+            this.clearBut.Name = "clearBut";
+            this.clearBut.Size = new System.Drawing.Size(100, 32);
+            this.clearBut.TabIndex = 7;
+            this.clearBut.Text = "Clear filters";
+            this.clearBut.UseVisualStyleBackColor = true;
+            this.clearBut.Click += new System.EventHandler(this.clearBut_Click);
+            // 
             // ExploreWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.clearBut);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.idxLabel);
             this.Controls.Add(this.searchBut);
@@ -124,6 +136,8 @@ namespace handwritten_number_classifier.ui
             this.ResumeLayout(false);
             this.PerformLayout();
         }
+
+        private System.Windows.Forms.Button clearBut;
 
         private System.Windows.Forms.Label idxLabel;
         private System.Windows.Forms.Label label2;
