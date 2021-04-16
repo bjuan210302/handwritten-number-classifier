@@ -58,7 +58,8 @@ namespace handwritten_number_classifier.Model
         public Bitmap GetImage(int index, int imgSize)
         {
             //Needs testing
-            return GenerateImage(_testSet[index, "1:"], imgSize);
+            
+            return GenerateImage(_testSet[index, "1:"].reshape((28,28)).transpose(), imgSize);
         }
         private Bitmap GenerateImage(NDArray alphas, int imgSize)
         {

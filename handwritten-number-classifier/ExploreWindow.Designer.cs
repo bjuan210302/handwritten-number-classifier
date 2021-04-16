@@ -44,27 +44,29 @@ namespace handwritten_number_classifier
             // 
             this.NumberImage.Location = new System.Drawing.Point(36, 31);
             this.NumberImage.Name = "NumberImage";
-            this.NumberImage.Size = new System.Drawing.Size(255, 184);
+            this.NumberImage.Size = new System.Drawing.Size(280, 280);
             this.NumberImage.TabIndex = 0;
             this.NumberImage.TabStop = false;
             // 
             // prevBut
             // 
             this.prevBut.Image = ((System.Drawing.Image) (resources.GetObject("prevBut.Image")));
-            this.prevBut.Location = new System.Drawing.Point(84, 237);
+            this.prevBut.Location = new System.Drawing.Point(83, 335);
             this.prevBut.Name = "prevBut";
             this.prevBut.Size = new System.Drawing.Size(46, 52);
             this.prevBut.TabIndex = 1;
             this.prevBut.UseVisualStyleBackColor = true;
+            this.prevBut.Click += new System.EventHandler(this.prevBut_Click);
             // 
             // nextBut
             // 
             this.nextBut.Image = ((System.Drawing.Image) (resources.GetObject("nextBut.Image")));
-            this.nextBut.Location = new System.Drawing.Point(186, 237);
+            this.nextBut.Location = new System.Drawing.Point(209, 335);
             this.nextBut.Name = "nextBut";
             this.nextBut.Size = new System.Drawing.Size(46, 52);
             this.nextBut.TabIndex = 2;
             this.nextBut.UseVisualStyleBackColor = true;
+            this.nextBut.Click += new System.EventHandler(this.nextBut_Click);
             // 
             // searchField
             // 
@@ -81,6 +83,7 @@ namespace handwritten_number_classifier
             this.searchBut.Size = new System.Drawing.Size(43, 32);
             this.searchBut.TabIndex = 4;
             this.searchBut.UseVisualStyleBackColor = true;
+            this.searchBut.Click += new System.EventHandler(this.searchBut_Click);
             // 
             // ExploreWindow
             // 
