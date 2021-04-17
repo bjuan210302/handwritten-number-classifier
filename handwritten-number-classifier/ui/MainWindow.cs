@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -23,6 +24,15 @@ namespace handwritten_number_classifier.ui
         {
             ExploreWindow ew = new ExploreWindow();
             ew.ShowDialog();
+        }
+
+        private void button_mouseIn(object sender, EventArgs e)
+        {
+            exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size + 3);
+        }
+        private void button_mouseOut(object sender, EventArgs e)
+        {
+            exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size - 3);
         }
     }
 }
