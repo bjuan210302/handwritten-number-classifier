@@ -55,13 +55,32 @@ namespace handwritten_number_classifier.ui
         
         private void searchBut_Click(object sender, EventArgs e)
         {
-            searchMode = true;
-            indexes = c.GetAllIndexesWithLabel(int.Parse(searchField.Text));
-            idxEsp = 0;
-            indexS = indexes[idxEsp];
-            UpdateGraphics((int) indexS);
-            actualizeLabel();
-            checkIdx();
+            try
+            {
+                if (int.Parse(searchField.Text) < 0 || int.Parse(searchField.Text) > 9)
+                {
+                    MessageBox.Show("The number must be between 0 and 9!", "Error!", MessageBoxButtons.OK);
+                    searchField.Text = "";
+                }
+                else
+                {
+                    searchMode = true;
+                    indexes = c.GetAllIndexesWithLabel(int.Parse(searchField.Text));
+                    idxEsp = 0;
+                    indexS = indexes[idxEsp];
+                    UpdateGraphics((int) indexS);
+                    actualizeLabel();
+                    checkIdx();
+                    searchField.Text = "";
+                }
+                
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Invalid Format", "Error!", MessageBoxButtons.OK);
+                searchField.Text = "";
+            }
+            
         }
 
         private void nextBut_Click(object sender, EventArgs e)
