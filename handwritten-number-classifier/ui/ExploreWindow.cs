@@ -169,6 +169,11 @@ namespace handwritten_number_classifier.ui
             actualizeLabel();
             searchField.Text = "";
         }
-        
+
+        private void viewChartsBut_Click(object sender, EventArgs e)
+        {
+            ChartsWindow cw = new ChartsWindow(this.c);
+            cw.ShowDialog();
+        }
     }
 }

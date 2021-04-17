@@ -132,7 +132,7 @@ namespace handwritten_number_classifier.ui
             chartArea1.Name = "ChartArea1";
             this.histogramGraph.ChartAreas.Add(chartArea1);
             this.histogramGraph.Location = new System.Drawing.Point(341, 98);
-            this.histogramGraph.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.histogramGraph.Margin = new System.Windows.Forms.Padding(4);
             this.histogramGraph.Name = "histogramGraph";
             this.histogramGraph.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.None;
             this.histogramGraph.PaletteCustomColors = new System.Drawing.Color[] {System.Drawing.Color.Black};
@@ -147,10 +147,11 @@ namespace handwritten_number_classifier.ui
             // 
             this.viewChartsBut.Location = new System.Drawing.Point(780, 39);
             this.viewChartsBut.Name = "viewChartsBut";
-            this.viewChartsBut.Size = new System.Drawing.Size(119, 32);
+            this.viewChartsBut.Size = new System.Drawing.Size(158, 32);
             this.viewChartsBut.TabIndex = 9;
             this.viewChartsBut.Text = "View other charts";
             this.viewChartsBut.UseVisualStyleBackColor = true;
+            this.viewChartsBut.Click += new System.EventHandler(this.viewChartsBut_Click);
             // 
             // ExploreWindow
             // 
