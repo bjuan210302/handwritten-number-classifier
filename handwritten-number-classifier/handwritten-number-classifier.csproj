@@ -241,6 +241,7 @@
     </ItemGroup>
     <ItemGroup>
       <Folder Include="assets" />
+      <Folder Include="Documentation" />
     </ItemGroup>
     <ItemGroup>
       <Content Include="Resources\searchIcon.png" />
