@@ -169,6 +169,6 @@ namespace handwritten_number_classifier.ui
             actualizeLabel();
             searchField.Text = "";
         }
-
+        
     }
 }
