@@ -1,6 +1,6 @@
 # Handwritten Number Reader
 
-_Explorate the MNIST Dataset, and train a neural network with it, in C#._
+_Explorate the MNIST Dataset, and train a neural network with it, in C#._ [[Video]](https://drive.google.com/file/d/1-189jP2HIwKbnGAFmJQUmuqVykKZarnW/view?usp=sharing)
 
 ## Getting started 🚀
 
