@@ -39,13 +39,6 @@ namespace handwritten_number_classifier.Model.NeuralNet
             _layers = np.zeros((NeuronsPerLayer, NumOfLayers));
         }
 
-        private NDArray ActivationFunction(NDArray matrix)
-        {
-            //The Sigmoid Function
-            matrix = 1 / (1 + np.exp(-1*matrix));
-            return matrix;
-        }
-
         private NDArray FeedForward(NDArray input)
         {
             //This method returns the output vector 
@@ -53,11 +46,11 @@ namespace handwritten_number_classifier.Model.NeuralNet
             NDArray info = input;
             for (int i = 0; i < NumOfLayers; i++)
             {
-                _layers[i] = ActivationFunction(info.dot(_weights[i]) + _biases[i]); //Layer = WEIGHTS * INPUT + BIASES
+                _layers[i] = ActivationFunction.Compute(info.dot(_weights[i]) + _biases[i]); //Layer = WEIGHTS * INPUT + BIASES
                 info = _layers[i];
             }
             
-            return ActivationFunction(info.dot(_weights.Last()) + _biases.Last()); //Output vector
+            return ActivationFunction.Compute(info.dot(_weights.Last()) + _biases.Last()); //Output vector
         }
     }
 }
