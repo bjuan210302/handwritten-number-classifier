@@ -151,6 +151,7 @@ namespace handwritten_number_classifier.ui
             this.trainBut.TabIndex = 10;
             this.trainBut.Text = "Train";
             this.trainBut.UseVisualStyleBackColor = true;
+            this.trainBut.Click += new System.EventHandler(this.trainBut_Click);
             // 
             // label5
             // 
@@ -164,9 +165,10 @@ namespace handwritten_number_classifier.ui
             // 
             // NumberImages
             // 
-            this.NumberImages.Location = new System.Drawing.Point(660, 109);
+            this.NumberImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.NumberImages.Location = new System.Drawing.Point(641, 109);
             this.NumberImages.Name = "NumberImages";
-            this.NumberImages.Size = new System.Drawing.Size(280, 281);
+            this.NumberImages.Size = new System.Drawing.Size(300, 300);
             this.NumberImages.TabIndex = 12;
             this.NumberImages.TabStop = false;
             // 
@@ -179,6 +181,7 @@ namespace handwritten_number_classifier.ui
             this.prevBut.Size = new System.Drawing.Size(45, 52);
             this.prevBut.TabIndex = 13;
             this.prevBut.UseVisualStyleBackColor = true;
+            this.prevBut.Click += new System.EventHandler(this.prevBut_Click);
             // 
             // nextBut
             // 
@@ -189,6 +192,7 @@ namespace handwritten_number_classifier.ui
             this.nextBut.Size = new System.Drawing.Size(45, 52);
             this.nextBut.TabIndex = 14;
             this.nextBut.UseVisualStyleBackColor = true;
+            this.nextBut.Click += new System.EventHandler(this.nextBut_Click);
             // 
             // testBut
             // 
@@ -198,6 +202,7 @@ namespace handwritten_number_classifier.ui
             this.testBut.TabIndex = 15;
             this.testBut.Text = "Test";
             this.testBut.UseVisualStyleBackColor = true;
+            this.testBut.Click += new System.EventHandler(this.testBut_Click);
             // 
             // label6
             // 
