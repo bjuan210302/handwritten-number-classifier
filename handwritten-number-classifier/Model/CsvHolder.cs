@@ -12,21 +12,29 @@ namespace handwritten_number_classifier.Model
         public const string TrainingSetPath = "../../assets/mnist_csv/mnist_train.csv";
         public const string TestSetPath = "../../assets/mnist_csv/mnist_test.csv";
 
-        private NDArray _trainingSet;
-        private NDArray _indexedTrainingSet;
-        private NDArray _testSet;
+        private NDArray TrainingSet
+        {
+            get;
+            set;
+        }
+        public NDArray TestSet
+        {
+            get;
+            set;
+        }
         private NDArray _indexedTestSet;
+        private NDArray _indexedTrainingSet;
         
         public void LoadTrainingSet()
         {
-            this._trainingSet = LoadSet(TrainingSetPath);
-            this._indexedTrainingSet = IndexLabels(_trainingSet);
+            this.TrainingSet = LoadSet(TrainingSetPath);
+            this._indexedTrainingSet = IndexLabels(TrainingSet);
         }
 
         public void LoadTestSet()
         {
-            this._testSet = LoadSet(TestSetPath);
-            this._indexedTestSet = IndexLabels(_testSet);
+            this.TestSet = LoadSet(TestSetPath);
+            this._indexedTestSet = IndexLabels(TestSet);
         }
         
         private NDArray LoadSet(string path)
@@ -60,7 +68,7 @@ namespace handwritten_number_classifier.Model
         public NDArray GetHistogramOf(int imgIndex)
         {
             //_testSet[imgIndex, "1:"] is the pixels of the image with index imgIndex
-            var pixels = _testSet[imgIndex, "1:"];
+            var pixels = TestSet[imgIndex, "1:"];
             var histogramPoints = np.zeros((256, 2));
 
             for (int i = 0; i < histogramPoints.shape[0]; i++)
@@ -76,7 +84,7 @@ namespace handwritten_number_classifier.Model
         
         public Bitmap GetImage(int index, int imgSize)
         {
-            return GenerateImage(_testSet[index, "1:"].reshape((28,28)).transpose(), imgSize);
+            return GenerateImage(TestSet[index, "1:"].reshape((28,28)).transpose(), imgSize);
         }
         private Bitmap GenerateImage(NDArray alphas, int imgSize)
         {
