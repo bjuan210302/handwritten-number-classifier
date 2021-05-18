@@ -165,10 +165,12 @@ namespace handwritten_number_classifier.ui
             // 
             // NumberImages
             // 
+            this.NumberImages.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.NumberImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.NumberImages.Location = new System.Drawing.Point(641, 109);
             this.NumberImages.Name = "NumberImages";
             this.NumberImages.Size = new System.Drawing.Size(300, 300);
+            this.NumberImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
             this.NumberImages.TabIndex = 12;
             this.NumberImages.TabStop = false;
             // 

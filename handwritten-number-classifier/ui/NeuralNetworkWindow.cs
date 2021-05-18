@@ -15,7 +15,6 @@ namespace handwritten_number_classifier.ui
             InitializeComponent();
             MaximizeBox = false;
             this.c = c;
-            
             UpdateGraphics(idx);
             CheckIdx();
             
