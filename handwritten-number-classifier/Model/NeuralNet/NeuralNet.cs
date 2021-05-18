@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using NumSharp;
 
 namespace handwritten_number_classifier.Model.NeuralNet
@@ -22,21 +23,30 @@ namespace handwritten_number_classifier.Model.NeuralNet
             
             //Each neuron in the input has a weight pointing to the NEURONS_PER_LAYER neurons of the next layer
             //Same for the other layers
-            _weights.Add(np.random.rand((NeuronsPerLayer, NumFeaturesPerExample))); //W1
+            _weights.Add(np.random.rand((NeuronsPerLayer, NumFeaturesPerExample)) * 0.01); //W1
             _biases.Add(np.zeros((NeuronsPerLayer, 1))); //b1
-            _weights.Add(np.random.rand((NeuronsOutLayer, NeuronsPerLayer))); //W2
+            _weights.Add(np.random.rand((NeuronsOutLayer, NeuronsPerLayer)) * 0.01); //W2
             _biases.Add(np.zeros((NeuronsOutLayer, 1))); //b2
         }
 
+        public NDArray MakePrediction(NDArray X)
+        {
+            return FeedForward(X)[3];
+        }
         private List<NDArray> FeedForward(NDArray X)
         {
-            var z1 = np.dot(X, _weights[0].transpose()) + _biases[0].transpose(); //Input * W1 + b1
+            var z1 = np.dot(_weights[0], X) + _biases[0]; //Input * W1 + b1
             //Console.WriteLine("W1 Shape: " + _weights[0].Shape.ToString());
             //Console.WriteLine("b1 Shape: " + _biases[0].Shape.ToString());
             //Console.WriteLine("Z1 Shape: " + z1.Shape.ToString());
-            var a = ActivationFunction.ComputeRelu(z1);
+            
+            //Console.WriteLine("W1: {0}", _weights[0].ToString());
+            //Console.WriteLine("b1: {0}", _biases[0].ToString());
+            //Console.WriteLine("Z1: {0}", z1.ToString());
+
+            var a = np.tanh(z1);
             //Console.WriteLine("A shape: " + a.Shape.ToString());
-            var z2 =  np.dot(a, _weights[1].transpose()) + _biases[1].transpose(); //Input * W2 + b2
+            var z2 =  np.dot(_weights[1],a) + _biases[1]; //Input * W2 + b2
             //Console.WriteLine("W2 Shape: " + _weights[1].Shape.ToString());
             //Console.WriteLine("b2 Shape: " + _biases[1].Shape.ToString());
             //Console.WriteLine("Z2 Shape: " + z2.Shape.ToString());
@@ -53,53 +63,82 @@ namespace handwritten_number_classifier.Model.NeuralNet
             var z2 = forwardResults[2];
             var yPredict = forwardResults[3];
             //Console.WriteLine("[IN BACKPROP] yPredict Shape: " + yPredict.Shape.ToString());
-            Console.WriteLine("[IN BACKPROP] yPredict: " + yPredict.ToString());
+            //Console.WriteLine("[IN BACKPROP] yPredict: " + yPredict.ToString());
             //Console.WriteLine("[IN BACKPROP] Y Shape: " + expectedY.Shape.ToString());
-            Console.WriteLine("[IN BACKPROP] Y: " + expectedY.ToString());
+            //Console.WriteLine("[IN BACKPROP] Y: " + expectedY.ToString());
             //Console.WriteLine("[IN BACKPROP] a: " + a.ToString());
 
-            var loss = np.power((yPredict - expectedY), 2).reshape(NeuronsOutLayer).ToArray<Double>();
-            var lossTotal = loss.Sum();
+            var costSum = np.power((yPredict - expectedY), 2);
+            costSum = (1 / no_examples) * SumHorizontal(costSum);
+            costSum = costSum.ToArray<double>().Sum();
+            
             
             //Calculating gradients
-            var dLdZ2 = yPredict - expectedY; //1x10
-            //Console.WriteLine(dLdZ2.ToString());
+
+            var dLdZ2 = yPredict - expectedY;
+            //Console.WriteLine("dLdZ2: " + dLdZ2.ToString());
             //Console.WriteLine("[IN BACKPROP] dLdZ2 shape: " + dLdZ2.Shape.ToString());
-            var dLdW2 = (1/no_examples) * np.dot(dLdZ2.transpose(), a);
-            var dLdb2 = (1/no_examples) * np.sum(dLdZ2.transpose(), 1, true);
-            var dLdZ1 = np.multiply(np.dot(_weights[1].T, dLdZ2.T), (1 - np.power(a, 2)).transpose()); //8x1
+            var dLdW2 = (1/no_examples) * np.dot(dLdZ2, a.T);
+            var dLdb2 = (1 / no_examples) * SumHorizontal(dLdZ2);
+           
+            
+            var dLdZ1 = np.multiply(np.dot(_weights[1].T, dLdZ2), (1 - np.power(a, 2))); //8x1
             //Console.WriteLine("[IN BACKPROP] dLdZ1 shape: " + dLdZ1.Shape.ToString());
-            var dLdW1 = (1/no_examples) * np.dot(dLdZ1, X);
-            var dLdb1 = (1/no_examples) * np.sum(dLdZ1, 1, true);
+            var dLdW1 = (1/no_examples) * np.dot(dLdZ1, X.T);
+            //Console.WriteLine("dLdZ1" + dLdZ1.ToString());
+            var dLdb1 = (1 / no_examples) * SumHorizontal(dLdZ1);
+            //Console.WriteLine("dLdb1" + dLdb1.ToString());
+            
             
             //Adjusting weights and biases
-            _weights[1] += dLdW2;
-            _biases[1] += dLdb2;
-            _weights[0] += dLdW1; //Tiene que ser 8x784
-            _biases[0] += dLdb1;
+            var leaningRate = 0.5f;
+            _weights[1] -= dLdW2 * leaningRate;
+            _biases[1] -= dLdb2 * leaningRate;
+            _weights[0] -= dLdW1 * leaningRate; //Tiene que ser 8x784
+            _biases[0] -= dLdb1 * leaningRate;
             
-            return lossTotal;
+            return costSum;
         }
-
-        public double Train(NDArray data, NDArray labels)
+        
+        private NDArray SumHorizontal(NDArray matrix)
         {
-            var totalLoss = 0.0;
+            //Doing this because the np.sum method is acting weird.
+            var aux = np.zeros(matrix.shape[0], 1);
             
-            for (int i = 0; i < data.shape[0]; i++)
+            for (int i = 0; i < matrix.shape[0]; i++)
             {
-                Console.WriteLine("------------------------ " + i + " --------------");
-                var x = data[i,":"].reshape(1, NumFeaturesPerExample);
-                NDArray expectedY = np.zeros((10, 1), NPTypeCode.Int32);
-                expectedY[labels[i]] = 1;
-                
-                var resultForward = FeedForward(x);
-                
-                var loss = BackPropagation(x, resultForward, expectedY.transpose(), (double)data.shape[0]);
-                Console.WriteLine(loss);
-                totalLoss += loss;
+                aux[i] = matrix[i].ToArray<double>().Sum();
             }
 
-            return totalLoss / (double)data.shape[0];
+            return aux;
         }
+        public double Train(NDArray data, NDArray labels)
+        {
+            labels = labels.reshape(labels.size);
+
+            NDArray expectedY = np.zeros((10, labels.shape[0]), NPTypeCode.Double);
+            
+            for (int i = 0; i < labels.shape[0]; i++)
+            {
+                double a = labels[i];
+                expectedY[(int)a,i] = 1;
+            }
+
+            var resultForward = FeedForward(data);
+
+            var loss = BackPropagation(data, resultForward, expectedY, data.shape[1]);
+
+            return loss;
+        }
+
+        public void PrintWB()
+        {
+            Console.WriteLine("-----------------NEURAL NET DATA---------------");
+            Console.WriteLine("W1 \n {0}", _weights[0]);
+            Console.WriteLine("W2 \n {0}", _weights[1]);
+            Console.WriteLine("b1 \n {0}", _biases[0]);
+            Console.WriteLine("b2 \n {0}", _biases[1]);
+        }
+        
     }
 }

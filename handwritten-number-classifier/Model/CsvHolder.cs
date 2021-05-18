@@ -12,7 +12,7 @@ namespace handwritten_number_classifier.Model
         public const string TrainingSetPath = "../../assets/mnist_csv/mnist_train.csv";
         public const string TestSetPath = "../../assets/mnist_csv/mnist_test.csv";
 
-        private NDArray TrainingSet
+        public NDArray TrainingSet
         {
             get;
             set;
