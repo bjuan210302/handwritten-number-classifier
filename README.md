@@ -19,7 +19,8 @@ This project uses [SciSharp/NumSharp 0.30.0](https://github.com/SciSharp/NumShar
 
 ## Documentation 📄
 
-You can find some diagrams describing the structure of the project in the [Documentation](./Documentation/) folder. Additionally here is the [Engineering Method](https://drive.google.com/file/d/1LLQiy0oebz8SKDufRh-REl0oxAb6c0Rb/view?usp=sharing) from step one to three; and the [Functional and non-functional reqs](https://drive.google.com/file/d/17Ye1W7G4jEckY-LpDEtnvRtbsKSA-sio/view?usp=sharing).
+You can find some diagrams describing the structure of the project in the [Documentation](./Documentation/) folder. 
+Additionally here is the [Engineering Method](/Documentation/Método%20de%20la%20ingeniería.pdf) from step one to three; and the [Functional and non-functional reqs](/Documentation/Requerimientos.pdf).
 
 
 
