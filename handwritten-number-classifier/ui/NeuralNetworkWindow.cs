@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
+using NumSharp;
 
 namespace handwritten_number_classifier.ui
 {
@@ -17,7 +18,7 @@ namespace handwritten_number_classifier.ui
             this.c = c;
             UpdateGraphics(idx);
             CheckIdx();
-            
+            probsChart.Legends.Clear();
         }
 
         private void UpdateGraphics(int index)
@@ -63,12 +64,37 @@ namespace handwritten_number_classifier.ui
 
         private void testBut_Click(object sender, EventArgs e)
         {
-            //Here goes the method to test with a number
+            NDArray results = c.MakePredictions(idx);
+            UpdateLabels(results);
+            UpdateChart(results);
         }
 
-        private void trainBut_Click(object sender, EventArgs e)
+        private void UpdateLabels(NDArray results)
         {
-            //Here goes the method to train the neural network
+            prob0.Text = ((double)(results[0][0]*100)).ToString("#.##") + "%";
+            prob1.Text = ((double)(results[1][0]*100)).ToString("#.##") + "%";
+            prob2.Text = ((double)(results[2][0]*100)).ToString("#.##") + "%";
+            prob3.Text = ((double)(results[3][0]*100)).ToString("#.##") + "%";
+            prob4.Text = ((double)(results[4][0]*100)).ToString("#.##") + "%";
+            prob5.Text = ((double)(results[5][0]*100)).ToString("#.##") + "%";
+            prob6.Text = ((double)(results[6][0]*100)).ToString("#.##") + "%";
+            prob7.Text = ((double)(results[7][0]*100)).ToString("#.##") + "%";
+            prob8.Text = ((double)(results[8][0]*100)).ToString("#.##") + "%";
+            prob9.Text = ((double)(results[9][0]*100)).ToString("#.##") + "%";
+            
         }
+
+        private void UpdateChart(NDArray results)
+        {
+            
+            
+            //Fill
+            for (int i = 0; i < 10; i++)
+            {
+                probsChart.Series[0].Points.AddXY(i, results[i][0]*100);
+            }
+        }
+
+
     }
 }

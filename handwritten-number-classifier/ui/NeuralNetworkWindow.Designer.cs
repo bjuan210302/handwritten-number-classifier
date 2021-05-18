@@ -61,9 +61,9 @@ namespace handwritten_number_classifier.ui
             this.prob3 = new System.Windows.Forms.Label();
             this.prob2 = new System.Windows.Forms.Label();
             this.prob1 = new System.Windows.Forms.Label();
-            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.probsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize) (this.NumberImages)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.probsChart)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -307,28 +307,28 @@ namespace handwritten_number_classifier.ui
             this.prob1.TabIndex = 36;
             this.prob1.Text = "0%";
             // 
-            // chart1
+            // probsChart
             // 
             chartArea1.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea1);
+            this.probsChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
-            this.chart1.Legends.Add(legend1);
-            this.chart1.Location = new System.Drawing.Point(555, 124);
-            this.chart1.Name = "chart1";
+            this.probsChart.Legends.Add(legend1);
+            this.probsChart.Location = new System.Drawing.Point(555, 124);
+            this.probsChart.Name = "probsChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
             series1.Name = "Series1";
-            this.chart1.Series.Add(series1);
-            this.chart1.Size = new System.Drawing.Size(421, 363);
-            this.chart1.TabIndex = 37;
-            this.chart1.Text = "chart1";
+            this.probsChart.Series.Add(series1);
+            this.probsChart.Size = new System.Drawing.Size(421, 363);
+            this.probsChart.TabIndex = 37;
+            this.probsChart.Text = "chart1";
             // 
             // NeuralNetworkWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1031, 635);
-            this.Controls.Add(this.chart1);
+            this.Controls.Add(this.probsChart);
             this.Controls.Add(this.prob1);
             this.Controls.Add(this.prob2);
             this.Controls.Add(this.prob3);
@@ -358,11 +358,11 @@ namespace handwritten_number_classifier.ui
             this.Name = "NeuralNetworkWindow";
             this.Text = "NeuralNetworkWindow";
             ((System.ComponentModel.ISupportInitialize) (this.NumberImages)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.probsChart)).EndInit();
             this.ResumeLayout(false);
         }
 
-        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart probsChart;
 
         private System.Windows.Forms.Label prob1;
         private System.Windows.Forms.Label prob2;
