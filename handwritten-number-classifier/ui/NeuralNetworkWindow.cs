@@ -86,7 +86,7 @@ namespace handwritten_number_classifier.ui
 
         private void UpdateChart(NDArray results)
         {
-            
+            probsChart.Series[0].Points.Clear();
             
             //Fill
             for (int i = 0; i < 10; i++)
