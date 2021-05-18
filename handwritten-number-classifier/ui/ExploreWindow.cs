@@ -14,11 +14,11 @@ namespace handwritten_number_classifier.ui
         private NDArray indexes;
         private double indexS;
         private bool searchMode;
-        public ExploreWindow()
+        public ExploreWindow(Controller c)
         {
             InitializeComponent();
             MaximizeBox = false;
-            c = new Controller();
+            this.c = c;
             NumberImage.Dock = DockStyle.Fill;
             
             //Chart 

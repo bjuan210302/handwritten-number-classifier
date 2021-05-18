@@ -8,21 +8,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using handwritten_number_classifier.Model;
 
 namespace handwritten_number_classifier.ui
 {
     public partial class Form1 : Form
     {
+        
+        private Controller c;
         public Form1()
         {
             InitializeComponent();
-            neuralNBut.Enabled = false;
             MaximizeBox = false;
+            c = new Controller();
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            ExploreWindow ew = new ExploreWindow();
+            ExploreWindow ew = new ExploreWindow(this.c);
             ew.ShowDialog();
         }
 
@@ -33,6 +36,21 @@ namespace handwritten_number_classifier.ui
         private void button_mouseOut(object sender, EventArgs e)
         {
             exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size - 3);
+        }
+
+        private void neuralNBut_Click(object sender, EventArgs e)
+        {
+            NeuralNetworkWindow nnw = new NeuralNetworkWindow(this.c);
+            nnw.ShowDialog();
+        }
+        
+        private void neuralNBut_mouseIn(object sender, EventArgs e)
+        {
+            neuralNBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size + 3);
+        }
+        private void neuralNbut_mouseOut(object sender, EventArgs e)
+        {
+            neuralNBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size - 3);
         }
     }
 }
