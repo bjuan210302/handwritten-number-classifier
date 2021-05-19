@@ -23,10 +23,10 @@ namespace handwritten_number_classifier.Model.NeuralNet
             
             //Each neuron in the input has a weight pointing to the NEURONS_PER_LAYER neurons of the next layer
             //Same for the other layers
-            _weights.Add(np.random.rand((NeuronsPerLayer, NumFeaturesPerExample)) * 0.01); //W1
-            _biases.Add(np.zeros((NeuronsPerLayer, 1))); //b1
-            _weights.Add(np.random.rand((NeuronsOutLayer, NeuronsPerLayer)) * 0.01); //W2
-            _biases.Add(np.zeros((NeuronsOutLayer, 1))); //b2
+            _weights.Add(np.load("../../assets/nnModel/W1.npy") ); //W1
+            _biases.Add(np.load("../../assets/nnModel/b1.npy") ); //b1
+            _weights.Add(np.load("../../assets/nnModel/W2.npy") ); //W2
+            _biases.Add(np.load("../../assets/nnModel/b2.npy") ); //b2
         }
 
         public NDArray MakePrediction(NDArray X)
@@ -133,11 +133,10 @@ namespace handwritten_number_classifier.Model.NeuralNet
 
         public void PrintWB()
         {
-            Console.WriteLine("-----------------NEURAL NET DATA---------------");
-            Console.WriteLine("W1 \n {0}", _weights[0]);
-            Console.WriteLine("W2 \n {0}", _weights[1]);
-            Console.WriteLine("b1 \n {0}", _biases[0]);
-            Console.WriteLine("b2 \n {0}", _biases[1]);
+            np.save("../../../W1", _weights[0]);
+            np.save("../../../W2", _weights[1]);
+            np.save("../../../b1", _biases[0]);
+            np.save("../../../b2", _biases[1]);
         }
         
     }

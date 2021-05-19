@@ -196,6 +196,9 @@
     <ItemGroup>
         <Compile Include="Model\Controller.cs" />
         <Compile Include="Model\CsvHolder.cs" />
+        <Compile Include="Model\NeuralNet\ActivationFunction.cs" />
+        <Compile Include="Model\NeuralNet\NeuralNet.cs" />
+        <Compile Include="Model\NeuralNet\NnTrainer.cs" />
         <Compile Include="Properties\AssemblyInfo.cs" />
         <Compile Include="ui\ChartsWindow.cs">
           <SubType>Form</SubType>
