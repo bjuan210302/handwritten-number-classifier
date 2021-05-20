@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using NumSharp;
 
 namespace handwritten_number_classifier.Model.NeuralNet
@@ -38,14 +37,11 @@ namespace handwritten_number_classifier.Model.NeuralNet
                     loss += nn.Train(dataX, dataY);
                 }
 
-                Console.WriteLine("EPOCH {0} DONE. AVERAGE LOSS = {1}", i, loss/60000.0);
+                Console.WriteLine("EPOCH {0} DONE. AVERAGE LOSS = {1}", i, loss/batches);
                 Shuffle(holder.TrainingSet);
                 nn.PrintWB();
             }
 
-            var pred = nn.MakePrediction(holder.TrainingSet["5000,1:"].reshape(1, 784).T);
-            Console.WriteLine(pred.ToString());
-            Console.WriteLine(holder.TrainingSet["5000,0"].ToString());
         }
 
         private static void Shuffle(NDArray matrix) //Making this method because the np.random.shuffle method doesn't work either

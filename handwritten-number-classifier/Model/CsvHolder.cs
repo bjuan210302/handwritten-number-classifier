@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
-using System.Runtime.Remoting.Messaging;
-using System.Windows.Forms;
 using NumSharp;
 
 namespace handwritten_number_classifier.Model
@@ -23,12 +21,10 @@ namespace handwritten_number_classifier.Model
             set;
         }
         private NDArray _indexedTestSet;
-        private NDArray _indexedTrainingSet;
         
         public void LoadTrainingSet()
         {
             this.TrainingSet = LoadSet(TrainingSetPath);
-            this._indexedTrainingSet = IndexLabels(TrainingSet);
         }
 
         public void LoadTestSet()
