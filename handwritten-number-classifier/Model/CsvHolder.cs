@@ -60,7 +60,7 @@ namespace handwritten_number_classifier.Model
             
             return indexed;
         }
-
+        
         public NDArray GetHistogramOf(int imgIndex)
         {
             //_testSet[imgIndex, "1:"] is the pixels of the image with index imgIndex
