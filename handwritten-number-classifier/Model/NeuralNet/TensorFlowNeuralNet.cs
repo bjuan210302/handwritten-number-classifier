@@ -23,6 +23,10 @@ namespace handwritten_number_classifier.Model.NeuralNet
         {
             return model.predict(x_test[idx].reshape(1, 784));
         }
+        public Tensor MakePrediction(NDArray img)
+        {
+            return model.predict(img.reshape(1, 784));
+        }
         
         public void PrepareModel()
         {
