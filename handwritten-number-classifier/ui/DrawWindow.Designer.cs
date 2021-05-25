@@ -40,7 +40,7 @@ namespace handwritten_number_classifier.ui
             this.panel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panel.Location = new System.Drawing.Point(39, 27);
             this.panel.Name = "panel";
-            this.panel.Size = new System.Drawing.Size(404, 357);
+            this.panel.Size = new System.Drawing.Size(404, 395);
             this.panel.TabIndex = 0;
             this.panel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_MouseDown);
             this.panel.MouseMove += new System.Windows.Forms.MouseEventHandler(this.panel_MouseMove);
