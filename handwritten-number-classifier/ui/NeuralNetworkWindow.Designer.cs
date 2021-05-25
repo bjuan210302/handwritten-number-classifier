@@ -64,6 +64,7 @@ namespace handwritten_number_classifier.ui
             this.probsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.OwnImpleCheck = new System.Windows.Forms.CheckBox();
             this.TFCheck = new System.Windows.Forms.CheckBox();
+            this.DrawBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.NumberImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.probsChart)).BeginInit();
             this.SuspendLayout();
@@ -343,11 +344,22 @@ namespace handwritten_number_classifier.ui
             this.TFCheck.Text = "TensorFlow";
             this.TFCheck.UseVisualStyleBackColor = true;
             // 
+            // DrawBut
+            // 
+            this.DrawBut.Location = new System.Drawing.Point(107, 650);
+            this.DrawBut.Name = "DrawBut";
+            this.DrawBut.Size = new System.Drawing.Size(91, 75);
+            this.DrawBut.TabIndex = 40;
+            this.DrawBut.Text = "Draw";
+            this.DrawBut.UseVisualStyleBackColor = true;
+            this.DrawBut.Click += new System.EventHandler(this.DrawBut_Click);
+            // 
             // NeuralNetworkWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1216, 856);
+            this.Controls.Add(this.DrawBut);
             this.Controls.Add(this.TFCheck);
             this.Controls.Add(this.OwnImpleCheck);
             this.Controls.Add(this.probsChart);
@@ -383,6 +395,8 @@ namespace handwritten_number_classifier.ui
             ((System.ComponentModel.ISupportInitialize) (this.probsChart)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Button DrawBut;
 
         private System.Windows.Forms.CheckBox OwnImpleCheck;
         private System.Windows.Forms.CheckBox TFCheck;

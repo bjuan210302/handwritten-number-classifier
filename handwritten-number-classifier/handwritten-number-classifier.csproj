@@ -273,6 +273,12 @@
         <Compile Include="ui\ChartsWindow.Designer.cs">
           <DependentUpon>ChartsWindow.cs</DependentUpon>
         </Compile>
+        <Compile Include="ui\DrawWindow.cs">
+          <SubType>Form</SubType>
+        </Compile>
+        <Compile Include="ui\DrawWindow.Designer.cs">
+          <DependentUpon>DrawWindow.cs</DependentUpon>
+        </Compile>
         <Compile Include="ui\ExploreWindow.cs">
           <SubType>Form</SubType>
         </Compile>
@@ -303,6 +309,9 @@
         </Compile>
         <EmbeddedResource Include="ui\ChartsWindow.resx">
           <DependentUpon>ChartsWindow.cs</DependentUpon>
+        </EmbeddedResource>
+        <EmbeddedResource Include="ui\DrawWindow.resx">
+          <DependentUpon>DrawWindow.cs</DependentUpon>
         </EmbeddedResource>
         <EmbeddedResource Include="ui\ExploreWindow.resx">
           <DependentUpon>ExploreWindow.cs</DependentUpon>

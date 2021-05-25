@@ -108,6 +108,10 @@ namespace handwritten_number_classifier.ui
         }
 
 
-        
+        private void DrawBut_Click(object sender, EventArgs e)
+        {
+            DrawWindow dw = new DrawWindow(this.c);
+            dw.ShowDialog();
+        }
     }
 }
