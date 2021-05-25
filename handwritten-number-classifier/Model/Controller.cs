@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using System.Drawing;
 using handwritten_number_classifier.Model.NeuralNet;
 using NumSharp;
+using NumSharp.Generic;
 using Tensorflow;
 
 namespace handwritten_number_classifier.Model
@@ -27,7 +28,14 @@ namespace handwritten_number_classifier.Model
         {
             return _tfn.MakePrediction(idx).numpy();
         }
-        
+        public List<NDArray> MakePrediction(NDArray img)
+        {
+            return _nn.MakePrediction(img.reshape(1,784).transpose());
+        }
+        public NDArray MakePredictionTf(NDArray img)
+        {
+            return _tfn.MakePrediction(img).numpy();
+        }
         public Bitmap GetImageWithIndex(int index, int imageSize)
         {
             return _holder.GetImage(index, imageSize);
