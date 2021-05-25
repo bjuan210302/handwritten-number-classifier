@@ -51,7 +51,7 @@ namespace handwritten_number_classifier.ui
             this.ClearBut.Name = "ClearBut";
             this.ClearBut.Size = new System.Drawing.Size(131, 51);
             this.ClearBut.TabIndex = 1;
-            this.ClearBut.Text = "Clear";
+            this.ClearBut.Text = "Send";
             this.ClearBut.UseVisualStyleBackColor = true;
             this.ClearBut.Click += new System.EventHandler(this.ClearBut_Click);
             // 

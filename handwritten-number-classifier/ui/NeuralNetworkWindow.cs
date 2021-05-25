@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
 using NumSharp;
@@ -24,6 +25,14 @@ namespace handwritten_number_classifier.ui
         private void UpdateGraphics(int index)
         {
             NumberImages.Image = c.GetImageWithIndex(index , 280);
+        }
+
+        public void UpdateGraphWithImg(Bitmap img)
+        {
+            NumberImages.Image = img;
+            Bitmap newImg = new Bitmap(img, new Size(28, 28));
+            var d = newImg.ToNDArray();
+            
         }
 
         private void CheckIdx()
@@ -110,7 +119,7 @@ namespace handwritten_number_classifier.ui
 
         private void DrawBut_Click(object sender, EventArgs e)
         {
-            DrawWindow dw = new DrawWindow(this.c);
+            DrawWindow dw = new DrawWindow(this.c, this);
             dw.ShowDialog();
         }
     }

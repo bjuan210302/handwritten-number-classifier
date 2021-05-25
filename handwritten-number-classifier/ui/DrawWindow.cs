@@ -15,12 +15,14 @@ namespace handwritten_number_classifier.ui
         public Controller c;
         private Bitmap surface;
         private Graphics graph;
+        private NeuralNetworkWindow nn;
         
-        public DrawWindow(Controller c)
+        public DrawWindow(Controller c, NeuralNetworkWindow nn)
         {
             InitializeComponent();
             g = panel.CreateGraphics();
             this.c = c;
+            this.nn = nn;
             p.SetLineCap(System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.DashCap.Round);
             surface = new Bitmap(panel.Width, panel.Height);
             graph = Graphics.FromImage(surface);
@@ -47,31 +49,11 @@ namespace handwritten_number_classifier.ui
 
         private void ClearBut_Click(object sender, EventArgs e)
         {
-            //Bitmap newImg = ScaleImage(surface, 28, 28);
-            Bitmap newImg = new Bitmap(surface, new Size(28, 28));
-            newImg.Save("newImg");
+            Bitmap newImg = new Bitmap(surface, new Size(280, 280));
+            nn.UpdateGraphWithImg(newImg);
+            this.Close();
         }
         
-        private Bitmap ScaleImage(Bitmap bmp, int maxWidth, int maxHeight)
-        {
-            var ratioX = (double)maxWidth / bmp.Width;
-            var ratioY = (double)maxHeight / bmp.Height;
-            var ratio = Math.Min(ratioX, ratioY);
-         
-            var newWidth = (int)(bmp.Width * ratio);
-            var newHeight = (int)(bmp.Height * ratio);
-         
-            var newImage = new Bitmap(newWidth, newHeight);
-
-            using (var graphics = Graphics.FromImage(newImage))
-            {
-                graphics.DrawImage(bmp, 0, 0, newWidth, newHeight);
-                graphics.Dispose();
-            }
-                
-            
-         
-            return newImage;
-        }
+        
     }
 }
