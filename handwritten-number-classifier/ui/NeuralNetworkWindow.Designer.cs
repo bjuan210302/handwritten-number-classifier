@@ -62,6 +62,8 @@ namespace handwritten_number_classifier.ui
             this.prob2 = new System.Windows.Forms.Label();
             this.prob1 = new System.Windows.Forms.Label();
             this.probsChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.OwnImpleCheck = new System.Windows.Forms.CheckBox();
+            this.TFCheck = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize) (this.NumberImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.probsChart)).BeginInit();
             this.SuspendLayout();
@@ -69,7 +71,7 @@ namespace handwritten_number_classifier.ui
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Cambria", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label1.Location = new System.Drawing.Point(363, 21);
+            this.label1.Location = new System.Drawing.Point(438, 19);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(310, 79);
             this.label1.TabIndex = 5;
@@ -79,7 +81,7 @@ namespace handwritten_number_classifier.ui
             // NumberImages
             // 
             this.NumberImages.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.NumberImages.Location = new System.Drawing.Point(33, 124);
+            this.NumberImages.Location = new System.Drawing.Point(12, 259);
             this.NumberImages.Name = "NumberImages";
             this.NumberImages.Size = new System.Drawing.Size(300, 300);
             this.NumberImages.SizeMode = System.Windows.Forms.PictureBoxSizeMode.CenterImage;
@@ -90,7 +92,7 @@ namespace handwritten_number_classifier.ui
             // 
             this.prevBut.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("prevBut.BackgroundImage")));
             this.prevBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.prevBut.Location = new System.Drawing.Point(72, 437);
+            this.prevBut.Location = new System.Drawing.Point(51, 572);
             this.prevBut.Name = "prevBut";
             this.prevBut.Size = new System.Drawing.Size(45, 52);
             this.prevBut.TabIndex = 13;
@@ -101,7 +103,7 @@ namespace handwritten_number_classifier.ui
             // 
             this.nextBut.BackgroundImage = ((System.Drawing.Image) (resources.GetObject("nextBut.BackgroundImage")));
             this.nextBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.nextBut.Location = new System.Drawing.Point(226, 437);
+            this.nextBut.Location = new System.Drawing.Point(205, 572);
             this.nextBut.Name = "nextBut";
             this.nextBut.Size = new System.Drawing.Size(45, 52);
             this.nextBut.TabIndex = 14;
@@ -110,7 +112,7 @@ namespace handwritten_number_classifier.ui
             // 
             // testBut
             // 
-            this.testBut.Location = new System.Drawing.Point(123, 437);
+            this.testBut.Location = new System.Drawing.Point(102, 572);
             this.testBut.Name = "testBut";
             this.testBut.Size = new System.Drawing.Size(97, 52);
             this.testBut.TabIndex = 15;
@@ -121,7 +123,7 @@ namespace handwritten_number_classifier.ui
             // label6
             // 
             this.label6.Font = new System.Drawing.Font("Palatino Linotype", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label6.Location = new System.Drawing.Point(379, 120);
+            this.label6.Location = new System.Drawing.Point(941, 491);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 24);
             this.label6.TabIndex = 16;
@@ -130,7 +132,7 @@ namespace handwritten_number_classifier.ui
             // label7
             // 
             this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label7.Location = new System.Drawing.Point(394, 154);
+            this.label7.Location = new System.Drawing.Point(956, 525);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(31, 20);
             this.label7.TabIndex = 17;
@@ -139,7 +141,7 @@ namespace handwritten_number_classifier.ui
             // label8
             // 
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label8.Location = new System.Drawing.Point(394, 414);
+            this.label8.Location = new System.Drawing.Point(956, 785);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(31, 20);
             this.label8.TabIndex = 18;
@@ -148,7 +150,7 @@ namespace handwritten_number_classifier.ui
             // label9
             // 
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label9.Location = new System.Drawing.Point(394, 383);
+            this.label9.Location = new System.Drawing.Point(956, 754);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 20);
             this.label9.TabIndex = 19;
@@ -157,7 +159,7 @@ namespace handwritten_number_classifier.ui
             // label10
             // 
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label10.Location = new System.Drawing.Point(394, 447);
+            this.label10.Location = new System.Drawing.Point(956, 818);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(31, 20);
             this.label10.TabIndex = 20;
@@ -166,7 +168,7 @@ namespace handwritten_number_classifier.ui
             // label11
             // 
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label11.Location = new System.Drawing.Point(394, 354);
+            this.label11.Location = new System.Drawing.Point(956, 725);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(31, 20);
             this.label11.TabIndex = 21;
@@ -175,7 +177,7 @@ namespace handwritten_number_classifier.ui
             // label12
             // 
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label12.Location = new System.Drawing.Point(394, 320);
+            this.label12.Location = new System.Drawing.Point(956, 691);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(31, 20);
             this.label12.TabIndex = 22;
@@ -184,7 +186,7 @@ namespace handwritten_number_classifier.ui
             // label13
             // 
             this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label13.Location = new System.Drawing.Point(394, 286);
+            this.label13.Location = new System.Drawing.Point(956, 657);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(31, 20);
             this.label13.TabIndex = 23;
@@ -193,7 +195,7 @@ namespace handwritten_number_classifier.ui
             // label14
             // 
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label14.Location = new System.Drawing.Point(394, 250);
+            this.label14.Location = new System.Drawing.Point(956, 621);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(31, 20);
             this.label14.TabIndex = 24;
@@ -202,7 +204,7 @@ namespace handwritten_number_classifier.ui
             // label15
             // 
             this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label15.Location = new System.Drawing.Point(394, 218);
+            this.label15.Location = new System.Drawing.Point(956, 589);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(31, 20);
             this.label15.TabIndex = 25;
@@ -211,7 +213,7 @@ namespace handwritten_number_classifier.ui
             // label16
             // 
             this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label16.Location = new System.Drawing.Point(394, 184);
+            this.label16.Location = new System.Drawing.Point(956, 555);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(31, 20);
             this.label16.TabIndex = 26;
@@ -220,7 +222,7 @@ namespace handwritten_number_classifier.ui
             // prob0
             // 
             this.prob0.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob0.Location = new System.Drawing.Point(431, 154);
+            this.prob0.Location = new System.Drawing.Point(993, 525);
             this.prob0.Name = "prob0";
             this.prob0.Size = new System.Drawing.Size(98, 16);
             this.prob0.TabIndex = 27;
@@ -229,7 +231,7 @@ namespace handwritten_number_classifier.ui
             // prob9
             // 
             this.prob9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob9.Location = new System.Drawing.Point(431, 447);
+            this.prob9.Location = new System.Drawing.Point(993, 818);
             this.prob9.Name = "prob9";
             this.prob9.Size = new System.Drawing.Size(98, 16);
             this.prob9.TabIndex = 28;
@@ -238,7 +240,7 @@ namespace handwritten_number_classifier.ui
             // prob8
             // 
             this.prob8.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob8.Location = new System.Drawing.Point(431, 414);
+            this.prob8.Location = new System.Drawing.Point(993, 785);
             this.prob8.Name = "prob8";
             this.prob8.Size = new System.Drawing.Size(98, 16);
             this.prob8.TabIndex = 29;
@@ -247,7 +249,7 @@ namespace handwritten_number_classifier.ui
             // prob7
             // 
             this.prob7.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob7.Location = new System.Drawing.Point(431, 383);
+            this.prob7.Location = new System.Drawing.Point(993, 754);
             this.prob7.Name = "prob7";
             this.prob7.Size = new System.Drawing.Size(98, 16);
             this.prob7.TabIndex = 30;
@@ -256,7 +258,7 @@ namespace handwritten_number_classifier.ui
             // prob6
             // 
             this.prob6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob6.Location = new System.Drawing.Point(431, 354);
+            this.prob6.Location = new System.Drawing.Point(993, 725);
             this.prob6.Name = "prob6";
             this.prob6.Size = new System.Drawing.Size(98, 16);
             this.prob6.TabIndex = 31;
@@ -265,7 +267,7 @@ namespace handwritten_number_classifier.ui
             // prob5
             // 
             this.prob5.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob5.Location = new System.Drawing.Point(431, 320);
+            this.prob5.Location = new System.Drawing.Point(993, 691);
             this.prob5.Name = "prob5";
             this.prob5.Size = new System.Drawing.Size(98, 16);
             this.prob5.TabIndex = 32;
@@ -274,7 +276,7 @@ namespace handwritten_number_classifier.ui
             // prob4
             // 
             this.prob4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob4.Location = new System.Drawing.Point(431, 286);
+            this.prob4.Location = new System.Drawing.Point(993, 657);
             this.prob4.Name = "prob4";
             this.prob4.Size = new System.Drawing.Size(98, 16);
             this.prob4.TabIndex = 33;
@@ -283,7 +285,7 @@ namespace handwritten_number_classifier.ui
             // prob3
             // 
             this.prob3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob3.Location = new System.Drawing.Point(431, 250);
+            this.prob3.Location = new System.Drawing.Point(993, 621);
             this.prob3.Name = "prob3";
             this.prob3.Size = new System.Drawing.Size(98, 16);
             this.prob3.TabIndex = 34;
@@ -292,7 +294,7 @@ namespace handwritten_number_classifier.ui
             // prob2
             // 
             this.prob2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob2.Location = new System.Drawing.Point(431, 218);
+            this.prob2.Location = new System.Drawing.Point(993, 589);
             this.prob2.Name = "prob2";
             this.prob2.Size = new System.Drawing.Size(98, 16);
             this.prob2.TabIndex = 35;
@@ -301,7 +303,7 @@ namespace handwritten_number_classifier.ui
             // prob1
             // 
             this.prob1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.prob1.Location = new System.Drawing.Point(431, 184);
+            this.prob1.Location = new System.Drawing.Point(993, 555);
             this.prob1.Name = "prob1";
             this.prob1.Size = new System.Drawing.Size(98, 16);
             this.prob1.TabIndex = 36;
@@ -313,7 +315,7 @@ namespace handwritten_number_classifier.ui
             this.probsChart.ChartAreas.Add(chartArea1);
             legend1.Name = "Legend1";
             this.probsChart.Legends.Add(legend1);
-            this.probsChart.Location = new System.Drawing.Point(555, 124);
+            this.probsChart.Location = new System.Drawing.Point(438, 481);
             this.probsChart.Name = "probsChart";
             series1.ChartArea = "ChartArea1";
             series1.Legend = "Legend1";
@@ -323,11 +325,31 @@ namespace handwritten_number_classifier.ui
             this.probsChart.TabIndex = 37;
             this.probsChart.Text = "chart1";
             // 
+            // OwnImpleCheck
+            // 
+            this.OwnImpleCheck.Location = new System.Drawing.Point(32, 210);
+            this.OwnImpleCheck.Name = "OwnImpleCheck";
+            this.OwnImpleCheck.Size = new System.Drawing.Size(120, 38);
+            this.OwnImpleCheck.TabIndex = 38;
+            this.OwnImpleCheck.Text = "Own implementation";
+            this.OwnImpleCheck.UseVisualStyleBackColor = true;
+            // 
+            // TFCheck
+            // 
+            this.TFCheck.Location = new System.Drawing.Point(173, 215);
+            this.TFCheck.Name = "TFCheck";
+            this.TFCheck.Size = new System.Drawing.Size(120, 28);
+            this.TFCheck.TabIndex = 39;
+            this.TFCheck.Text = "TensorFlow";
+            this.TFCheck.UseVisualStyleBackColor = true;
+            // 
             // NeuralNetworkWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1031, 635);
+            this.ClientSize = new System.Drawing.Size(1216, 856);
+            this.Controls.Add(this.TFCheck);
+            this.Controls.Add(this.OwnImpleCheck);
             this.Controls.Add(this.probsChart);
             this.Controls.Add(this.prob1);
             this.Controls.Add(this.prob2);
@@ -361,6 +383,9 @@ namespace handwritten_number_classifier.ui
             ((System.ComponentModel.ISupportInitialize) (this.probsChart)).EndInit();
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.CheckBox OwnImpleCheck;
+        private System.Windows.Forms.CheckBox TFCheck;
 
         private System.Windows.Forms.DataVisualization.Charting.Chart probsChart;
 
