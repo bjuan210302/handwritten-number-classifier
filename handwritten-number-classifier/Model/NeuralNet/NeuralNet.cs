@@ -22,18 +22,18 @@ namespace handwritten_number_classifier.Model.NeuralNet
             _biases.Add(np.load("../../assets/nnModel/b2.npy") ); //b2
         }
 
-        public NDArray MakePrediction(NDArray X)
+        public List<NDArray> MakePrediction(NDArray X)
         {
-            return FeedForward(X/255)[3];
+            return FeedForward(X/255);
         }
-        private List<NDArray> FeedForward(NDArray X)
+        private List<NDArray> FeedForward(NDArray X,  bool forPrediction = false)
         {
             var z1 = np.dot(_weights[0], X) + _biases[0]; //Input * W1 + b1
             var a = np.tanh(z1);
             var z2 =  np.dot(_weights[1],a) + _biases[1]; //Input * W2 + b2
             var yPredict = ActivationFunction.ComputeSigmoid(z2);
 
-            return new List<NDArray> {z1, a, z2, yPredict};
+            return forPrediction ? new List<NDArray> {a, yPredict} : new List<NDArray> {z1, a, z2, yPredict};
         }
 
         private double BackPropagation(NDArray X, List<NDArray> forwardResults, NDArray expectedY, double noExamples)

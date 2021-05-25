@@ -1,25 +1,33 @@
+using System.Collections.Generic;
 using System.Drawing;
+using handwritten_number_classifier.Model.NeuralNet;
 using NumSharp;
+using Tensorflow;
 
 namespace handwritten_number_classifier.Model
 {
     public class Controller
     {
         private CsvHolder _holder;
-        private NeuralNet.NeuralNet nn;
+        private NeuralNet.NeuralNet _nn;
+        private TensorFlowNeuralNet _tfn;
 
         public Controller()
         {
-            nn = new NeuralNet.NeuralNet();
+            _nn = new NeuralNet.NeuralNet();
             _holder = new CsvHolder();
-            _holder.LoadTestSet(); 
+            _holder.LoadTestSet();
         }
 
-        public NDArray MakePredictions(int idx)
+        public List<NDArray> MakePrediction(int idx)
         {
-            return nn.MakePrediction(_holder.TestSet[idx, "1:"].reshape(1,784).transpose());
+            return _nn.MakePrediction(_holder.TestSet[idx, "1:"].reshape(1,784).transpose());
         }
-
+        public NDArray MakePredictionTf(int idx)
+        {
+            return _tfn.MakePrediction(idx).numpy();
+        }
+        
         public Bitmap GetImageWithIndex(int index, int imageSize)
         {
             return _holder.GetImage(index, imageSize);
@@ -34,6 +42,12 @@ namespace handwritten_number_classifier.Model
         {
             //Returns [ByteValue, NumberOfOccurrences], shape = (256, 2)
             return _holder.GetHistogramOf(imgIndex);
+        }
+
+        public void LoadTensorflow()
+        {
+            _tfn = new TensorFlowNeuralNet();
+            _tfn.PrepareModel();
         }
     }
 }

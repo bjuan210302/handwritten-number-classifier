@@ -1,5 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using NumSharp;
+using Tensorflow;
 using Tensorflow.Keras.Layers;
 using static Tensorflow.KerasApi;
 
@@ -7,7 +10,6 @@ namespace handwritten_number_classifier.Model.NeuralNet
 {
     public class TensorFlowNeuralNet
     {
-        string pathToWeights = "../../assets/tf/model";
         LayersApi layers;
         Tensorflow.Keras.Engine.Model model;
         NDArray x_train, y_train, x_test, y_test;
@@ -17,19 +19,17 @@ namespace handwritten_number_classifier.Model.NeuralNet
             layers = new LayersApi();
         }
 
+        public Tensor MakePrediction(int idx)
+        {
+            return model.predict(x_test[idx].reshape(1, 784));
+        }
+        
         public void PrepareModel()
         {
             PrepareData();
             BuildModel();
             CompileModel();
             Train(); 
-        }
-
-        public void LoadModel()
-        {
-            PrepareData();
-            BuildModel();
-            model.load_weights(pathToWeights);
         }
         private void PrepareData()
         {
@@ -54,8 +54,6 @@ namespace handwritten_number_classifier.Model.NeuralNet
 
             // build keras model
             model = keras.Model(inputs, outputs, name: "mnist_model");
-            // show model summary
-            model.summary();
         }
 
         private void CompileModel()
@@ -68,17 +66,7 @@ namespace handwritten_number_classifier.Model.NeuralNet
 
         private void Train()
         {
-            // train model by feeding data and labels.
-            model.fit(x_train, y_train, batch_size: 64, epochs: 1, validation_split: 0.2f, verbose: 1);
-            ;
-            // evluate the model
-            //model.evaluate(x_test, y_test, verbose: 2);
-
-            // save and serialize model
-            //model.save_weights(pathToWeights, save_format:"h5");
-            //model.save(pathToWeights);
-
-            // recreate the exact same model purely from the file:
+            //model.fit(x_train, y_train, batch_size: 64, epochs: 1, validation_split: 0.2f, verbose: 1);
         }
     }
 }
