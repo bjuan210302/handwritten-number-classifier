@@ -24,7 +24,7 @@ namespace handwritten_number_classifier.Model.NeuralNet
 
         public List<NDArray> MakePrediction(NDArray X)
         {
-            return FeedForward(X/255);
+            return FeedForward(X/255, forPrediction: true);
         }
         private List<NDArray> FeedForward(NDArray X,  bool forPrediction = false)
         {
