@@ -66,7 +66,7 @@ namespace handwritten_number_classifier.Model.NeuralNet
 
         private void Train()
         {
-            //model.fit(x_train, y_train, batch_size: 64, epochs: 1, validation_split: 0.2f, verbose: 1);
+            model.fit(x_train, y_train, batch_size: 64, epochs: 1, validation_split: 0.2f, verbose: 1);
         }
     }
 }

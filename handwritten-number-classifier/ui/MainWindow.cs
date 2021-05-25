@@ -40,6 +40,7 @@ namespace handwritten_number_classifier.ui
 
         private void neuralNBut_Click(object sender, EventArgs e)
         {
+            //c.LoadTensorflow();
             NeuralNetworkWindow nnw = new NeuralNetworkWindow(this.c);
             nnw.ShowDialog();
         }
