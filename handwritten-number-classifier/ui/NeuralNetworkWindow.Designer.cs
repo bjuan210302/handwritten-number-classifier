@@ -65,16 +65,39 @@ namespace handwritten_number_classifier.ui
             this.OwnImpleCheck = new System.Windows.Forms.CheckBox();
             this.TFCheck = new System.Windows.Forms.CheckBox();
             this.DrawBut = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.ll10 = new System.Windows.Forms.Label();
+            this.ll9 = new System.Windows.Forms.Label();
+            this.ll8 = new System.Windows.Forms.Label();
+            this.ll7 = new System.Windows.Forms.Label();
+            this.ll6 = new System.Windows.Forms.Label();
+            this.ll5 = new System.Windows.Forms.Label();
+            this.ll4 = new System.Windows.Forms.Label();
+            this.ll3 = new System.Windows.Forms.Label();
+            this.ll2 = new System.Windows.Forms.Label();
+            this.ll1 = new System.Windows.Forms.Label();
+            this.fl8 = new System.Windows.Forms.Label();
+            this.fl7 = new System.Windows.Forms.Label();
+            this.fl6 = new System.Windows.Forms.Label();
+            this.fl5 = new System.Windows.Forms.Label();
+            this.fl4 = new System.Windows.Forms.Label();
+            this.fl3 = new System.Windows.Forms.Label();
+            this.fl2 = new System.Windows.Forms.Label();
+            this.fl1 = new System.Windows.Forms.Label();
+            this.ClearDrawBut = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize) (this.NumberImages)).BeginInit();
             ((System.ComponentModel.ISupportInitialize) (this.probsChart)).BeginInit();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.Font = new System.Drawing.Font("Cambria", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
-            this.label1.Location = new System.Drawing.Point(438, 19);
+            this.label1.Location = new System.Drawing.Point(2, 42);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(310, 79);
+            this.label1.Size = new System.Drawing.Size(310, 57);
             this.label1.TabIndex = 5;
             this.label1.Text = "Test";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -128,7 +151,7 @@ namespace handwritten_number_classifier.ui
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(129, 24);
             this.label6.TabIndex = 16;
-            this.label6.Text = "Probabilities:";
+            this.label6.Text = "Results:";
             // 
             // label7
             // 
@@ -334,6 +357,7 @@ namespace handwritten_number_classifier.ui
             this.OwnImpleCheck.TabIndex = 38;
             this.OwnImpleCheck.Text = "Own implementation";
             this.OwnImpleCheck.UseVisualStyleBackColor = true;
+            this.OwnImpleCheck.Click += new System.EventHandler(this.OwnImpleCheck_Click);
             // 
             // TFCheck
             // 
@@ -343,10 +367,11 @@ namespace handwritten_number_classifier.ui
             this.TFCheck.TabIndex = 39;
             this.TFCheck.Text = "TensorFlow";
             this.TFCheck.UseVisualStyleBackColor = true;
+            this.TFCheck.Click += new System.EventHandler(this.TFCheck_Click);
             // 
             // DrawBut
             // 
-            this.DrawBut.Location = new System.Drawing.Point(107, 650);
+            this.DrawBut.Location = new System.Drawing.Point(51, 645);
             this.DrawBut.Name = "DrawBut";
             this.DrawBut.Size = new System.Drawing.Size(91, 75);
             this.DrawBut.TabIndex = 40;
@@ -354,11 +379,239 @@ namespace handwritten_number_classifier.ui
             this.DrawBut.UseVisualStyleBackColor = true;
             this.DrawBut.Click += new System.EventHandler(this.DrawBut_Click);
             // 
+            // panel1
+            // 
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.label32);
+            this.panel1.Controls.Add(this.label31);
+            this.panel1.Controls.Add(this.ll10);
+            this.panel1.Controls.Add(this.ll9);
+            this.panel1.Controls.Add(this.ll8);
+            this.panel1.Controls.Add(this.ll7);
+            this.panel1.Controls.Add(this.ll6);
+            this.panel1.Controls.Add(this.ll5);
+            this.panel1.Controls.Add(this.ll4);
+            this.panel1.Controls.Add(this.ll3);
+            this.panel1.Controls.Add(this.ll2);
+            this.panel1.Controls.Add(this.ll1);
+            this.panel1.Controls.Add(this.fl8);
+            this.panel1.Controls.Add(this.fl7);
+            this.panel1.Controls.Add(this.fl6);
+            this.panel1.Controls.Add(this.fl5);
+            this.panel1.Controls.Add(this.fl4);
+            this.panel1.Controls.Add(this.fl3);
+            this.panel1.Controls.Add(this.fl2);
+            this.panel1.Controls.Add(this.fl1);
+            this.panel1.Location = new System.Drawing.Point(411, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(733, 430);
+            this.panel1.TabIndex = 41;
+            // 
+            // label32
+            // 
+            this.label32.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label32.Location = new System.Drawing.Point(381, 161);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(80, 48);
+            this.label32.TabIndex = 19;
+            this.label32.Text = "Final Layer";
+            // 
+            // label31
+            // 
+            this.label31.Font = new System.Drawing.Font("Cambria", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label31.Location = new System.Drawing.Point(65, 161);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(90, 74);
+            this.label31.TabIndex = 18;
+            this.label31.Text = "First Layer";
+            // 
+            // ll10
+            // 
+            this.ll10.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll10.Location = new System.Drawing.Point(510, 350);
+            this.ll10.Name = "ll10";
+            this.ll10.Size = new System.Drawing.Size(65, 29);
+            this.ll10.TabIndex = 17;
+            this.ll10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll9
+            // 
+            this.ll9.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll9.Location = new System.Drawing.Point(510, 314);
+            this.ll9.Name = "ll9";
+            this.ll9.Size = new System.Drawing.Size(65, 29);
+            this.ll9.TabIndex = 16;
+            this.ll9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll8
+            // 
+            this.ll8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll8.Location = new System.Drawing.Point(510, 278);
+            this.ll8.Name = "ll8";
+            this.ll8.Size = new System.Drawing.Size(65, 29);
+            this.ll8.TabIndex = 15;
+            this.ll8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll7
+            // 
+            this.ll7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll7.Location = new System.Drawing.Point(510, 242);
+            this.ll7.Name = "ll7";
+            this.ll7.Size = new System.Drawing.Size(65, 29);
+            this.ll7.TabIndex = 14;
+            this.ll7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll6
+            // 
+            this.ll6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll6.Location = new System.Drawing.Point(510, 206);
+            this.ll6.Name = "ll6";
+            this.ll6.Size = new System.Drawing.Size(65, 29);
+            this.ll6.TabIndex = 13;
+            this.ll6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll5
+            // 
+            this.ll5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll5.Location = new System.Drawing.Point(510, 170);
+            this.ll5.Name = "ll5";
+            this.ll5.Size = new System.Drawing.Size(65, 29);
+            this.ll5.TabIndex = 12;
+            this.ll5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll4
+            // 
+            this.ll4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll4.Location = new System.Drawing.Point(510, 134);
+            this.ll4.Name = "ll4";
+            this.ll4.Size = new System.Drawing.Size(65, 29);
+            this.ll4.TabIndex = 11;
+            this.ll4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll3
+            // 
+            this.ll3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll3.Location = new System.Drawing.Point(510, 98);
+            this.ll3.Name = "ll3";
+            this.ll3.Size = new System.Drawing.Size(65, 29);
+            this.ll3.TabIndex = 10;
+            this.ll3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll2
+            // 
+            this.ll2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll2.Location = new System.Drawing.Point(510, 62);
+            this.ll2.Name = "ll2";
+            this.ll2.Size = new System.Drawing.Size(65, 29);
+            this.ll2.TabIndex = 9;
+            this.ll2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ll1
+            // 
+            this.ll1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.ll1.Location = new System.Drawing.Point(510, 26);
+            this.ll1.Name = "ll1";
+            this.ll1.Size = new System.Drawing.Size(65, 29);
+            this.ll1.TabIndex = 8;
+            this.ll1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl8
+            // 
+            this.fl8.BackColor = System.Drawing.SystemColors.Control;
+            this.fl8.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl8.Location = new System.Drawing.Point(181, 342);
+            this.fl8.Name = "fl8";
+            this.fl8.Size = new System.Drawing.Size(54, 34);
+            this.fl8.TabIndex = 7;
+            this.fl8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl7
+            // 
+            this.fl7.BackColor = System.Drawing.SystemColors.Control;
+            this.fl7.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl7.Location = new System.Drawing.Point(181, 298);
+            this.fl7.Name = "fl7";
+            this.fl7.Size = new System.Drawing.Size(54, 34);
+            this.fl7.TabIndex = 6;
+            this.fl7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl6
+            // 
+            this.fl6.BackColor = System.Drawing.SystemColors.Control;
+            this.fl6.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl6.Location = new System.Drawing.Point(181, 254);
+            this.fl6.Name = "fl6";
+            this.fl6.Size = new System.Drawing.Size(54, 34);
+            this.fl6.TabIndex = 5;
+            this.fl6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl5
+            // 
+            this.fl5.BackColor = System.Drawing.SystemColors.Control;
+            this.fl5.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl5.Location = new System.Drawing.Point(181, 210);
+            this.fl5.Name = "fl5";
+            this.fl5.Size = new System.Drawing.Size(54, 34);
+            this.fl5.TabIndex = 4;
+            this.fl5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl4
+            // 
+            this.fl4.BackColor = System.Drawing.SystemColors.Control;
+            this.fl4.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl4.Location = new System.Drawing.Point(181, 166);
+            this.fl4.Name = "fl4";
+            this.fl4.Size = new System.Drawing.Size(54, 34);
+            this.fl4.TabIndex = 3;
+            this.fl4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl3
+            // 
+            this.fl3.BackColor = System.Drawing.SystemColors.Control;
+            this.fl3.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl3.Location = new System.Drawing.Point(181, 122);
+            this.fl3.Name = "fl3";
+            this.fl3.Size = new System.Drawing.Size(54, 34);
+            this.fl3.TabIndex = 2;
+            this.fl3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl2
+            // 
+            this.fl2.BackColor = System.Drawing.SystemColors.Control;
+            this.fl2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl2.Location = new System.Drawing.Point(181, 78);
+            this.fl2.Name = "fl2";
+            this.fl2.Size = new System.Drawing.Size(54, 34);
+            this.fl2.TabIndex = 1;
+            this.fl2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // fl1
+            // 
+            this.fl1.BackColor = System.Drawing.SystemColors.Control;
+            this.fl1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.fl1.Location = new System.Drawing.Point(181, 34);
+            this.fl1.Name = "fl1";
+            this.fl1.Size = new System.Drawing.Size(54, 34);
+            this.fl1.TabIndex = 0;
+            this.fl1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // ClearDrawBut
+            // 
+            this.ClearDrawBut.Location = new System.Drawing.Point(159, 645);
+            this.ClearDrawBut.Name = "ClearDrawBut";
+            this.ClearDrawBut.Size = new System.Drawing.Size(91, 75);
+            this.ClearDrawBut.TabIndex = 42;
+            this.ClearDrawBut.Text = "Clear Draw";
+            this.ClearDrawBut.UseVisualStyleBackColor = true;
+            this.ClearDrawBut.Click += new System.EventHandler(this.ClearDrawBut_Click);
+            // 
             // NeuralNetworkWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1216, 856);
+            this.ClientSize = new System.Drawing.Size(1216, 866);
+            this.Controls.Add(this.ClearDrawBut);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.DrawBut);
             this.Controls.Add(this.TFCheck);
             this.Controls.Add(this.OwnImpleCheck);
@@ -393,8 +646,40 @@ namespace handwritten_number_classifier.ui
             this.Text = "NeuralNetworkWindow";
             ((System.ComponentModel.ISupportInitialize) (this.NumberImages)).EndInit();
             ((System.ComponentModel.ISupportInitialize) (this.probsChart)).EndInit();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label label32;
+
+        private System.Windows.Forms.Label label31;
+
+        private System.Windows.Forms.Label ll2;
+        private System.Windows.Forms.Label ll3;
+        private System.Windows.Forms.Label ll4;
+        private System.Windows.Forms.Label ll5;
+        private System.Windows.Forms.Label ll6;
+        private System.Windows.Forms.Label ll7;
+        private System.Windows.Forms.Label ll8;
+        private System.Windows.Forms.Label ll9;
+        private System.Windows.Forms.Label ll10;
+
+        private System.Windows.Forms.Label ll1;
+
+        private System.Windows.Forms.Label fl8;
+
+        private System.Windows.Forms.Label fl5;
+        private System.Windows.Forms.Label fl6;
+        private System.Windows.Forms.Label fl7;
+        private System.Windows.Forms.Label fl2;
+        private System.Windows.Forms.Label fl3;
+        private System.Windows.Forms.Label fl4;
+
+        private System.Windows.Forms.Button ClearDrawBut;
+
+        private System.Windows.Forms.Label fl1;
+
+        private System.Windows.Forms.Panel panel1;
 
         private System.Windows.Forms.Button DrawBut;
 

@@ -32,7 +32,7 @@ namespace handwritten_number_classifier.Model
         {
             return _nn.MakePrediction(img.reshape(1,784).transpose());
         }
-        public NDArray MakePredictionTf(NDArray img)
+        public NDArray MakePredictionTff(NDArray img)
         {
             return _tfn.MakePrediction(img).numpy();
         }
