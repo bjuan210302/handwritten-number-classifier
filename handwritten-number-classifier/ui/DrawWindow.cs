@@ -22,12 +22,14 @@ namespace handwritten_number_classifier.ui
         public DrawWindow(Controller c, NeuralNetworkWindow nn)
         {
             InitializeComponent();
+            MaximizeBox = false;
             g = panel.CreateGraphics();
             this.c = c;
             this.nn = nn;
             p.SetLineCap(System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.DashCap.Round);
             surface = new Bitmap(panel.Width, panel.Height);
             graph = Graphics.FromImage(surface);
+            graph.SmoothingMode = SmoothingMode.HighQuality;
             panel.BackgroundImage = surface;
             panel.BackgroundImageLayout = ImageLayout.None;
             

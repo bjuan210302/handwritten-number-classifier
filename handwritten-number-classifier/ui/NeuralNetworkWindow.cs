@@ -39,6 +39,8 @@ namespace handwritten_number_classifier.ui
             UpdateChart(results);
             UpdateLabels(results);
             testBut.Enabled = false;
+            nextBut.Enabled = false;
+            prevBut.Enabled = false;
         }
 
         private void CheckIdx()
@@ -67,7 +69,6 @@ namespace handwritten_number_classifier.ui
             idx--;
             CheckIdx();
             UpdateGraphics(idx);
-            testBut.Enabled = true;
         }
 
         private void nextBut_Click(object sender, EventArgs e)
@@ -75,7 +76,6 @@ namespace handwritten_number_classifier.ui
             idx++;
             CheckIdx();
             UpdateGraphics(idx);
-            testBut.Enabled = true;
         }
 
 
@@ -136,6 +136,23 @@ namespace handwritten_number_classifier.ui
         {
             DrawWindow dw = new DrawWindow(this.c, this);
             dw.ShowDialog();
+        }
+
+        private void ClearDrawBut_Click(object sender, EventArgs e)
+        {
+            UpdateGraphics(idx);
+            CheckIdx();
+            testBut.Enabled = true;
+        }
+
+        private void OwnImpleCheck_Click(object sender, EventArgs e)
+        {
+            TFCheck.Checked = false;
+        }
+
+        private void TFCheck_Click(object sender, EventArgs e)
+        {
+            OwnImpleCheck.Checked = false;
         }
     }
 }
