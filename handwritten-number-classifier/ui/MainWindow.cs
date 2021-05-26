@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -33,8 +33,8 @@ namespace handwritten_number_classifier.ui
         private void neuralNBut_Click(object sender, EventArgs e)
         {
             SetButtons(false);
+            c.LoadTensorflow();
             NeuralNetworkWindow nnw = new NeuralNetworkWindow(this.c);
-            //c.LoadTensorflow();
             nnw.ShowDialog();
             SetButtons(true);
         }
