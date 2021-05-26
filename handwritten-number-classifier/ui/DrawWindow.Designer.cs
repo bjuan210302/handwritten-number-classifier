@@ -33,6 +33,7 @@ namespace handwritten_number_classifier.ui
         {
             this.panel = new System.Windows.Forms.Panel();
             this.ClearBut = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // panel
@@ -47,7 +48,7 @@ namespace handwritten_number_classifier.ui
             // 
             // ClearBut
             // 
-            this.ClearBut.Location = new System.Drawing.Point(536, 77);
+            this.ClearBut.Location = new System.Drawing.Point(471, 82);
             this.ClearBut.Name = "ClearBut";
             this.ClearBut.Size = new System.Drawing.Size(131, 51);
             this.ClearBut.TabIndex = 1;
@@ -55,17 +56,29 @@ namespace handwritten_number_classifier.ui
             this.ClearBut.UseVisualStyleBackColor = true;
             this.ClearBut.Click += new System.EventHandler(this.ClearBut_Click);
             // 
+            // label1
+            // 
+            this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.label1.Location = new System.Drawing.Point(39, 348);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(299, 68);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Note: This only works with the own implementation neural net due to tensorflow is" + "sues";
+            // 
             // DrawWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(749, 450);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.ClearBut);
             this.Controls.Add(this.panel);
             this.Name = "DrawWindow";
             this.Text = "DrawWindow";
             this.ResumeLayout(false);
         }
+
+        private System.Windows.Forms.Label label1;
 
         private System.Windows.Forms.Button ClearBut;
 
