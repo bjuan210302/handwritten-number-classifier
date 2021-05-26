@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Drawing;
+using System.Drawing.Drawing2D;
+using System.Drawing.Imaging;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
 using NumSharp;
@@ -10,7 +12,7 @@ namespace handwritten_number_classifier.ui
     {
         public Point current = new Point();
         public Point old = new Point();
-        public Pen p = new Pen(Color.Black, 30);
+        public Pen p = new Pen(Color.Black,25 );
         public Graphics g;
         public Controller c;
         private Bitmap surface;
@@ -49,8 +51,8 @@ namespace handwritten_number_classifier.ui
 
         private void ClearBut_Click(object sender, EventArgs e)
         {
-            Bitmap newImg = new Bitmap(surface, new Size(280, 280));
-            nn.UpdateGraphWithImg(newImg);
+            
+            nn.UpdateGraphWithImg(surface);
             this.Close();
         }
         

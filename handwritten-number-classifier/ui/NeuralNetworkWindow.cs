@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
 using NumSharp;
+using NumSharp.Generic;
 
 namespace handwritten_number_classifier.ui
 {
@@ -31,8 +32,13 @@ namespace handwritten_number_classifier.ui
         {
             NumberImages.Image = img;
             Bitmap newImg = new Bitmap(img, new Size(28, 28));
-            var d = newImg.ToNDArray();
             
+            NDArray d =  newImg.ToNDArray()["0,:,:,3"];
+            
+            NDArray results = c.MakePrediction(d)[1];
+            UpdateChart(results);
+            UpdateLabels(results);
+            testBut.Enabled = false;
         }
 
         private void CheckIdx()
@@ -61,6 +67,7 @@ namespace handwritten_number_classifier.ui
             idx--;
             CheckIdx();
             UpdateGraphics(idx);
+            testBut.Enabled = true;
         }
 
         private void nextBut_Click(object sender, EventArgs e)
@@ -68,6 +75,7 @@ namespace handwritten_number_classifier.ui
             idx++;
             CheckIdx();
             UpdateGraphics(idx);
+            testBut.Enabled = true;
         }
 
 
@@ -83,9 +91,16 @@ namespace handwritten_number_classifier.ui
                 results = c.MakePredictionTf(idx);
             }
 
+            try
+            {
+                UpdateLabels(results);
+                UpdateChart(results);
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show("Please choose a checkbox", "Error!", MessageBoxButtons.OK);
+            }
             
-            UpdateLabels(results);
-            UpdateChart(results);
         }
 
         private void UpdateLabels(NDArray results)
