@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Contracts;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.Linq;
@@ -29,22 +30,21 @@ namespace handwritten_number_classifier.ui
             ew.ShowDialog();
         }
 
-        private void button_mouseIn(object sender, EventArgs e)
-        {
-            exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size + 3);
-        }
-        private void button_mouseOut(object sender, EventArgs e)
-        {
-            exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size - 3);
-        }
-
         private void neuralNBut_Click(object sender, EventArgs e)
         {
-            //c.LoadTensorflow();
+            SetButtons(false);
             NeuralNetworkWindow nnw = new NeuralNetworkWindow(this.c);
+            //c.LoadTensorflow();
             nnw.ShowDialog();
+            SetButtons(true);
         }
-        
+
+        private void SetButtons(bool isEnabled)
+        {
+            neuralNBut.Enabled = isEnabled;
+            exploreBut.Enabled = isEnabled;
+        }
+
         private void neuralNBut_mouseIn(object sender, EventArgs e)
         {
             neuralNBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size + 3);
@@ -52,6 +52,14 @@ namespace handwritten_number_classifier.ui
         private void neuralNbut_mouseOut(object sender, EventArgs e)
         {
             neuralNBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size - 3);
+        }
+        private void button_mouseIn(object sender, EventArgs e)
+        {
+            exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size + 3);
+        }
+        private void button_mouseOut(object sender, EventArgs e)
+        {
+            exploreBut.Font = new Font(exploreBut.Font.FontFamily, exploreBut.Font.Size - 3);
         }
     }
 }
