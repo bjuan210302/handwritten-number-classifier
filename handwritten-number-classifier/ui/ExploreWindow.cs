@@ -75,7 +75,7 @@ namespace handwritten_number_classifier.ui
                 }
                 
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 MessageBox.Show("Invalid Format", "Error!", MessageBoxButtons.OK);
                 searchField.Text = "";

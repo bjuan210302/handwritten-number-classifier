@@ -41,9 +41,9 @@
             this.exploreBut.Font = new System.Drawing.Font("Segoe UI Semibold", 40F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.exploreBut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.exploreBut.Location = new System.Drawing.Point(0, 0);
-            this.exploreBut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.exploreBut.Margin = new System.Windows.Forms.Padding(2);
             this.exploreBut.Name = "exploreBut";
-            this.exploreBut.Size = new System.Drawing.Size(459, 503);
+            this.exploreBut.Size = new System.Drawing.Size(344, 409);
             this.exploreBut.TabIndex = 0;
             this.exploreBut.Text = "Explore";
             this.exploreBut.UseVisualStyleBackColor = true;
@@ -57,10 +57,10 @@
             this.neuralNBut.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.neuralNBut.Font = new System.Drawing.Font("Segoe UI Semibold", 40F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.neuralNBut.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.neuralNBut.Location = new System.Drawing.Point(459, 0);
-            this.neuralNBut.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.neuralNBut.Location = new System.Drawing.Point(344, 0);
+            this.neuralNBut.Margin = new System.Windows.Forms.Padding(2);
             this.neuralNBut.Name = "neuralNBut";
-            this.neuralNBut.Size = new System.Drawing.Size(459, 503);
+            this.neuralNBut.Size = new System.Drawing.Size(344, 409);
             this.neuralNBut.TabIndex = 1;
             this.neuralNBut.Text = "Neural Network";
             this.neuralNBut.UseVisualStyleBackColor = true;
@@ -70,15 +70,15 @@
             // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(911, 503);
+            this.ClientSize = new System.Drawing.Size(683, 409);
             this.Controls.Add(this.neuralNBut);
             this.Controls.Add(this.exploreBut);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Location = new System.Drawing.Point(15, 15);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.ResumeLayout(false);
