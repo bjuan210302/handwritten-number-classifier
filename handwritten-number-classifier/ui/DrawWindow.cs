@@ -1,17 +1,15 @@
 ﻿using System;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Drawing.Imaging;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
-using NumSharp;
 
 namespace handwritten_number_classifier.ui
 {
     public partial class DrawWindow : Form
     {
-        public Point current = new Point();
-        public Point old = new Point();
+        public Point current;
+        public Point old;
         public Pen p = new Pen(Color.Black,25 );
         public Graphics g;
         public Controller c;
@@ -26,7 +24,7 @@ namespace handwritten_number_classifier.ui
             g = panel.CreateGraphics();
             this.c = c;
             this.nn = nn;
-            p.SetLineCap(System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.LineCap.Round, System.Drawing.Drawing2D.DashCap.Round);
+            p.SetLineCap(LineCap.Round, LineCap.Round, DashCap.Round);
             surface = new Bitmap(panel.Width, panel.Height);
             graph = Graphics.FromImage(surface);
             graph.SmoothingMode = SmoothingMode.HighQuality;
@@ -55,7 +53,7 @@ namespace handwritten_number_classifier.ui
         {
             
             nn.UpdateGraphWithImg(surface);
-            this.Close();
+            Close();
         }
         
         

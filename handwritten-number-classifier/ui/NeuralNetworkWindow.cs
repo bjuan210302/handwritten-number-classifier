@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Windows.Forms;
 using handwritten_number_classifier.Model;
 using NumSharp;
-using NumSharp.Generic;
 
 namespace handwritten_number_classifier.ui
 {
@@ -12,6 +13,7 @@ namespace handwritten_number_classifier.ui
 
         private Controller c;
         private int idx = 0;
+        private List<Label> _predLabels;
         
         public NeuralNetworkWindow(Controller c)
         {
@@ -21,8 +23,35 @@ namespace handwritten_number_classifier.ui
             UpdateGraphics(idx);
             CheckIdx();
             probsChart.Legends.Clear();
+            _predLabels = new List<Label>();
+            ListifyLabels();
+
+            
         }
 
+        private void ListifyLabels()
+        {
+            _predLabels.Add(fl1);
+            _predLabels.Add(fl2);
+            _predLabels.Add(fl3);
+            _predLabels.Add(fl4);
+            _predLabels.Add(fl5);
+            _predLabels.Add(fl6);
+            _predLabels.Add(fl7);
+            _predLabels.Add(fl8);
+            
+            _predLabels.Add(ll1);
+            _predLabels.Add(ll2);
+            _predLabels.Add(ll3);
+            _predLabels.Add(ll4);
+            _predLabels.Add(ll5);
+            _predLabels.Add(ll6);
+            _predLabels.Add(ll7);
+            _predLabels.Add(ll8);
+            _predLabels.Add(ll9);
+            _predLabels.Add(ll10);
+        }
+        
         private void UpdateGraphics(int index)
         {
             NumberImages.Image = c.GetImageWithIndex(index , 280);
@@ -101,7 +130,7 @@ namespace handwritten_number_classifier.ui
                 UpdateLabels(results);
                 UpdateChart(results);
             }
-            catch (Exception exception)
+            catch (Exception)
             {
                 MessageBox.Show("Please choose a checkbox", "Error!", MessageBoxButtons.OK);
             }
@@ -162,25 +191,26 @@ namespace handwritten_number_classifier.ui
 
         private void UpdateNodes(NDArray results1, NDArray results2)
         {
-            fl1.Text = ((double)(results1[0][0])).ToString("#.####");
-            fl2.Text = ((double)(results1[1][0])).ToString("#.####");
-            fl3.Text = ((double)(results1[2][0])).ToString("#.####");
-            fl4.Text = ((double)(results1[3][0])).ToString("#.####");
-            fl5.Text = ((double)(results1[4][0])).ToString("#.####");
-            fl6.Text = ((double)(results1[5][0])).ToString("#.####");
-            fl7.Text = ((double)(results1[6][0])).ToString("#.####");
-            fl8.Text = ((double)(results1[7][0])).ToString("#.####");
+            for (int i = 0; i < 8; i++)
+            {
+                _predLabels[i].Text = ((double)(results1[i][0])).ToString("#.####");
+            }
             
-            ll1.Text = ((double)(results2[0][0])).ToString("#.####") ;
-            ll2.Text = ((double)(results2[1][0])).ToString("#.####") ;
-            ll3.Text = ((double)(results2[2][0])).ToString("#.####") ;
-            ll4.Text = ((double)(results2[3][0])).ToString("#.####") ;
-            ll5.Text = ((double)(results2[4][0])).ToString("#.####") ;
-            ll6.Text = ((double)(results2[5][0])).ToString("#.####") ;
-            ll7.Text = ((double)(results2[6][0])).ToString("#.####") ;
-            ll8.Text = ((double)(results2[7][0])).ToString("#.####") ;
-            ll9.Text = ((double)(results2[8][0])).ToString("#.####") ;
-            ll10.Text = ((double)(results2[9][0])).ToString("#.####");
+            var col = Color.Chartreuse;
+            
+            for (int i = 8; i < 18; i++)
+            {
+                var a = (double) results2[i-8][0];
+                _predLabels[i].Text = (a).ToString("#.####");
+
+                if (_predLabels[i].Text == "")
+                    _predLabels[i].Text = "0";
+                
+                if (a > 0.05)
+                    _predLabels[i].BackColor = Color.FromArgb((int)(a*255), col);
+                else
+                    _predLabels[i].BackColor = Color.FromArgb(10, col);
+            }
         }
         
         private void UpdateNodesTF()
