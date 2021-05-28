@@ -215,25 +215,18 @@ namespace handwritten_number_classifier.ui
         
         private void UpdateNodesTF()
         {
-            fl1.Text = "";
-            fl2.Text = "";
-            fl3.Text = "";
-            fl4.Text = "";
-            fl5.Text = "";
-            fl6.Text = "";
-            fl7.Text = "";
-            fl8.Text = "";
+            for (int i = 0; i < 8; i++)
+            {
+                _predLabels[i].Text = "";
+            }
+
+            for (int i = 8; i < 18; i++)
+            {
+                _predLabels[i].Text = "";
+                _predLabels[i].ResetBackColor();
+            }
             
-            ll1.Text = "" ;
-            ll2.Text = "" ;
-            ll3.Text = "" ;
-            ll4.Text = "" ;
-            ll5.Text = "" ;
-            ll6.Text = "" ;
-            ll7.Text = "" ;
-            ll8.Text = "" ;
-            ll9.Text = "" ;
-            ll10.Text = "";
+            
         }
     }
 }
