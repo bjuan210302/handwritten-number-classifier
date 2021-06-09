@@ -24,7 +24,7 @@ This project uses some open source machine learning C# libraries. This should co
 ## Documentation 📄
 
 You can find some diagrams describing the structure of the project in the [Documentation](./Documentation/) folder. 
-Additionally here is the [Engineering Method](/Documentation/Método%20de%20la%20ingeniería.pdf) from step one to three; and the [Functional and non-functional reqs](/Documentation/Requerimientos.pdf).
+Additionally here is the [Engineering Method](/Documentation/Método%20de%20la%20ingeniería.pdf) from step one to three; and the [Functional and non-functional reqs](/Documentation/Requerimientos.pdf). Also here is the [Experimental Design](https://docs.google.com/spreadsheets/d/140YvZwjEVPOJ-aF8ruU-nUFoFgS2prBjWgsCoQBag3o/edit#gid=0)
 
 
 
